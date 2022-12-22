@@ -66,8 +66,11 @@ function CardItem({name, bread, before, after}) {
           <tr>
             <td> Name: {name}</td>
           </tr>
-          {bread.length !== 0 &&
-            `Sabor do Pão: ${bread}`}
+          <tr>
+            <td> {bread.length !== 0 &&
+            `Sabor do Pão: ${bread}`}</td>
+          </tr>
+          
         </tbody>
         <tfoot>
           <tr>

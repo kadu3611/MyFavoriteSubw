@@ -15,9 +15,6 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     const [optionButton, setOptionButton] = useState(false);
     const [selectArray, setSelectArray] = useState([]);
 
-    // const selectAllArray =  moment === 'Antes do Forno' ? selectCheckboxSaladBefore : selectCheckboxSaladAfter
-    // const setSelectAllArray = moment === 'Antes do Forno' ? setSelectCheckboxaladBefore : setSelectCheckboxaladAfter
-
     const selectAllArray = selectCheckboxSaladBefore
     const setSelectAllArray = setSelectCheckboxaladBefore
 
@@ -39,19 +36,19 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         </button>
     );
 
-    function assitentFuncBack(newAntes, genricType){
+    function assitentFuncBack(newAntes, genricType) {
         const trueApos = genricType?.filter((item) => Object.keys(item)[0] === name)
-                if (trueApos.length < 1) {
-                const newGeneric = functionBack(name, generic)
-                setGeneric(newGeneric)
-                    setSelectAllArray(arrayOrdenado)
-                } else {
-                    arrayOrdenado.forEach(function (element) {
-                        if (Object.values(trueApos[0])[0].indexOf(element) === -1)
-                            newAntes.push(element);
-                    });
-                    setSelectAllArray(newAntes)
-                }
+        if (trueApos.length < 1) {
+            const newGeneric = functionBack(name, generic)
+            setGeneric(newGeneric)
+            setSelectAllArray(arrayOrdenado)
+        } else {
+            arrayOrdenado.forEach(function (element) {
+                if (Object.values(trueApos[0])[0].indexOf(element) === -1)
+                    newAntes.push(element);
+            });
+            setSelectAllArray(newAntes)
+        }
     }
 
     function funcBack() {
@@ -61,12 +58,12 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         if (generic.length !== 0) {
             if (moment === 'Antes do Forno') {
                 assitentFuncBack(newAntes, genericApos)
-            } else{
+            } else {
                 assitentFuncBack(newApos, genericAntes)
 
             }
         }
-       const newGeneric = functionBack(name, generic)
+        const newGeneric = functionBack(name, generic)
         setGeneric(newGeneric)
         setSelectArray([])
     }

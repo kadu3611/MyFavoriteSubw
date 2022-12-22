@@ -40,28 +40,3 @@ export{
   actualSetList,
   functionBack,
 }
-
-
-
-
-
-// const actualSetList = (name, newDate, newArray, setNewArray) => {
-//   let finish = false
-//   const arrayTeste = newArray;
-//   if (newArray.length < 1 && !finish) {
-//     setNewArray([{ [name]: newDate }])
-//   }
-//   else {
-//     newArray?.forEach((elemento, index) => {
-//       console.log(index, 'index function');
-//       if (Object.keys(elemento)[0] === name) {
-//         arrayTeste.splice(index, 1, { [name]: newDate })
-//         setNewArray(arrayTeste);
-//         finish = true;
-//       }
-//       if(!finish){
-//       setNewArray((backArray) => [...backArray, { [name]: newDate }])
-//     }
-//     });
-//   }
-// }

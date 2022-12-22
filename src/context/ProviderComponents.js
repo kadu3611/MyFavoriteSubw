@@ -4,7 +4,7 @@ import ContextHomePage from './ContextComponents';
 
 export default function ProviderComponents({ children }) {
 
-  const [selectOptionPao, setSelectOptionPao] = useState("");
+  const [selectOptionPao, setSelectOptionPao] = useState("3 Queijos");
   const [genericAntes, setGenericAntes] = useState([]);
   const [genericApos, setGenericApos] = useState([]);
   const [xbuttonRecheioBefore, setXbuttonRecheioBefore] = useState([]);

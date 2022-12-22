@@ -69,19 +69,6 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
         setSelectArray([])
     }
 
-    // function funcBack() {
-    //     setSelectAllArray(arrayOrdenado)
-    //     const newGeneric = functionBack(name, generic)
-    //     console.log(newGeneric, 'newGeneric');
-    //     setGeneric(newGeneric)
-    //     setSelectArray([])
-    // }
-
-
-    // const memo = useMemo(() => (
-    //     selectArray
-    // ), [selectArray])
-
     function showCheckboxes({ target }) {
         const { value } = target;
         const filterArray = selectAllArray?.filter((item) => item !== value);

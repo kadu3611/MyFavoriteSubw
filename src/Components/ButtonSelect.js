@@ -19,8 +19,7 @@ function Button() {
             Antes: genericAntes,
             Depois: genericApos
         });
-        console.log(selectOptionPao, 'Sabor do Pão');
-        // window.location.reload(false);
+        window.location.reload(false);
     }
 
     return (
