@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { memo, useContext } from 'react';
 import SaborPao from './Components/SaborPao';
 import Name from './Components/Name';
-import Options from './Components/Antes/Options';
+import Options from './Components/Options';
 import CardItem from './Components/CardItens';
+import ButtonSelect from './Components/ButtonSelect';
+import Favorites from './Components/Favorites';
+import ContextComponents from './context/ContextComponents';
 
 
 function HomePage() {
- 
+
+  const { selectOptionPao, genericAntes,
+     genericApos, nameContext } = useContext(ContextComponents);
+
   return (
     <div>
       <form>
@@ -25,11 +31,17 @@ function HomePage() {
           moment="Depois do Forno"
         />
       </form>
-      <CardItem/>
-      
+      <CardItem 
+      name = {nameContext}
+      bread = {selectOptionPao}
+      before = {genericAntes}
+      after = {genericApos}
+      />
+      <ButtonSelect />
+      <Favorites />
     </div>
 
   );
 }
 
-export default HomePage;
+export default memo(HomePage);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { objectArrays } from '../arrays';
+import { objectArrays } from '../Arrays/arrays';
 import RecheioCheckbox from './RecheioCheckbox';
 import AcrescimosCheckbox from './AcrescimosCheckbox';
 import GenericSelectSalad from './GenericSelectSalad';

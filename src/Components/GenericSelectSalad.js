@@ -1,5 +1,5 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
-import ContextComponents from '../../context/ContextComponents';
+import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
 
 function GenericSelectSalad({ name, arrayGeneric, moment }) {

@@ -3,9 +3,7 @@ import ContextComponents from '../context/ContextComponents';
 
 function Name() {
 
-    const { setNameContext
-
-    } = useContext(ContextComponents);
+    const { setNameContext } = useContext(ContextComponents);
 
 function nameIs({target}){
     const { value } = target

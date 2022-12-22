@@ -1,50 +1,32 @@
-import React, { useState, useContext, useEffect, useMemo, useCallback } from 'react';
-import { func, actualSetList } from './Fuctions/functions';
+import React, { useState, useContext, useEffect, memo, useCallback } from 'react';
+import { func, actualSetList, functionBack } from '../Fuctions/functions';
 import ContextComponents from '../context/ContextComponents';
 
-function GenericCheckbox({ name, arrayGenericCheckbox, moment }) {
+function AcrescimosCheckbox({ name, arrayGenericCheckbox, moment }) {
 
   const { genericAntes,
     setGenericAntes,
-    genericApos,
-    setGenericApos,
-
+    xbuttonAcrescimosBefore, setXbuttonAcrescimosBefore,
+    xbuttonAcrescimosAfter, setXbuttonAcrescimosAfter,
+    genericApos, setGenericApos
   } = useContext(ContextComponents);
 
   const [optionButton, setOptionButton] = useState(false);
-  console.log(arrayGenericCheckbox, 'arrayGenericCheckbox ===============');
 
-  // const initial = useCallback(() => {
-  //   setXbutton(arrayGenericCheckbox)},
-  // [arrayGenericCheckbox]);
-  const [xbutton, setXbutton] = useState([]);
-  console.log(genericAntes, 'genericAntes Checkbox');
-
-  useEffect(() => {
-    setXbutton(arrayGenericCheckbox);
-  },[
-    genericAntes, arrayGenericCheckbox,setXbutton
-    ]);
-    useEffect(() => {
-    },[
-      genericAntes
-      ]);
+  const xbutton = moment === 'Antes do Forno' ?
+  xbuttonAcrescimosBefore : xbuttonAcrescimosAfter
   
+ const setXbutton =  moment === 'Antes do Forno' ?
+ setXbuttonAcrescimosBefore : setXbuttonAcrescimosAfter
 
-  // let setGenericMoment = undefined
-  // let genericMoment = undefined
+ const generic = moment === 'Antes do Forno' ? genericAntes : genericApos
+ const setGeneric = moment === 'Antes do Forno' ? setGenericAntes : setGenericApos
 
-  // function funcMoment(){
-  //   if (moment === "Antes do Forno") {
-  //     setGenericMoment = setGenericAntes
-  //     genericMoment = genericAntes
-  //   } else {
-  //     setGenericMoment = setGenericApos
-  //     genericMoment = genericApos
+  const initial = useCallback(() => {
 
-  //   }
+    setXbutton(arrayGenericCheckbox)
 
-  // }
+  }, [setXbutton, arrayGenericCheckbox])
 
   const buttonOptionTrue = (
     <button
@@ -66,14 +48,14 @@ function GenericCheckbox({ name, arrayGenericCheckbox, moment }) {
       return item;
     });
     setXbutton(numberSoma);
-    if (moment === "Antes do Forno") {
-    actualSetList(name, numberSoma, genericAntes, setGenericAntes);
+    actualSetList(name, numberSoma, generic, setGeneric);
 
-    } else {
-    actualSetList(name, numberSoma, genericApos, setGenericApos);
-    }
   }
   };
+
+  useEffect(() => {
+    initial()
+  }, [initial])
 
   function subtractionArray(itemName) {
     const numberSub = xbutton.map((item) => {
@@ -85,24 +67,14 @@ function GenericCheckbox({ name, arrayGenericCheckbox, moment }) {
       return item;
     });
     setXbutton(numberSub);
-if (moment === "Antes do Forno") {
-    actualSetList(name, numberSub, genericAntes, setGenericAntes);
-
-    } else {
-    actualSetList(name, numberSub, genericApos, setGenericApos);
-    }
-
+    actualSetList(name, numberSub, generic, setGeneric);
   };
 
   function funcTurnBack() {
     setXbutton(arrayGenericCheckbox);
-if (moment === "Antes do Forno") {
-    actualSetList(name, arrayGenericCheckbox, genericAntes, setGenericAntes);
-
-    } else {
-    actualSetList(name, arrayGenericCheckbox, genericApos, setGenericApos);
-    }
-  };
+      const newGeneric = functionBack(name, generic)
+      setGeneric(newGeneric)
+      };
 
   const label = (
     <div>
@@ -150,4 +122,4 @@ if (moment === "Antes do Forno") {
   );
 }
 
-export default GenericCheckbox;
+export default memo(AcrescimosCheckbox);

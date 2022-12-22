@@ -1,10 +1,7 @@
-import React, { useContext, useCallback } from 'react';
-import ContextComponents from '../context/ContextComponents';
+import React, { useCallback } from 'react';
 
-function CardItem() {
+function CardItem({name, bread, before, after}) {
 
-  const {
-    selectOptionPao, genericAntes, genericApos, nameContext } = useContext(ContextComponents);
 
   const reproductArrays = useCallback((genericArray) => (
     genericArray?.map((item, length) => {
@@ -56,10 +53,6 @@ function CardItem() {
     )
   ), [])
 
-  // useEffect(() => {
-  //   reproductArrays()
-  // })
-
 
   return (
     <div>
@@ -71,10 +64,10 @@ function CardItem() {
         </thead>
         <tbody>
           <tr>
-            <td> Name: {nameContext}</td>
+            <td> Name: {name}</td>
           </tr>
-          {selectOptionPao.length !== 0 &&
-            `Sabor do Pão: ${selectOptionPao}`}
+          {bread.length !== 0 &&
+            `Sabor do Pão: ${bread}`}
         </tbody>
         <tfoot>
           <tr>
@@ -83,7 +76,7 @@ function CardItem() {
             </th>
           </tr>
           {
-            reproductArrays(genericAntes)
+            reproductArrays(before)
           }
           <tr>
             <th>
@@ -91,7 +84,7 @@ function CardItem() {
             </th>
           </tr>
           {
-            reproductArrays(genericApos)
+            reproductArrays(after)
           }
         </tfoot>
       </table>

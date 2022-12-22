@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { objectArrays } from './arrays';
+import { objectArrays } from '../Arrays/arrays';
 import ContextComponents from "../context/ContextComponents";
 
 function SaborPao() {
   const { arraySaborPao } = objectArrays;
-  const { setSelectOptionPao, setGeneric, generic } = useContext(ContextComponents);
+  const { setSelectOptionPao} = useContext(ContextComponents);
 
         function showCheckboxes({ target }) {
           const { value } = target;
