@@ -1,14 +1,17 @@
 import React, { useContext, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
-import { addDoc, collection, setDoc, doc } from 'firebase/firestore'
+import { collection, setDoc, doc } from 'firebase/firestore'
 import { db } from '../FIrebase/firebase-config'
-
+import { rulesName, rulesBeforeAndAfter } from './BusinessRules/businessRules'
 
 
 function Button() {
 
     const { nameContext, genericAntes, genericApos,
          selectOptionPao } = useContext(ContextComponents);
+
+  const disabledRules = rulesBeforeAndAfter(genericAntes, genericApos) === true && 
+  rulesName(nameContext) === true
 
     const createName = async () => {
 
@@ -25,7 +28,9 @@ function Button() {
     return (
         <button
             type='button'
-            onClick={createName}>
+            onClick={createName}
+            disabled = {!disabledRules}
+            >
             Salvar
         </button>
 
