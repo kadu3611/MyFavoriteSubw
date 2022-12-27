@@ -5,6 +5,8 @@ import AcrescimosCheckbox from './AcrescimosCheckbox';
 import GenericSelectSalad from './GenericSelectSalad';
 import GenericSelectTempero from './GenericSelectTempero';
 import GenericSelectMolhos from './GenericSelectMolhos';
+import { DivOption } from '../Styles/home.styles'
+
 
 
 function Options({moment}) {
@@ -13,7 +15,7 @@ function Options({moment}) {
          arrayRecheio } = objectArrays
  
     return (
-      <div>
+      <DivOption>
         <RecheioCheckbox
           name="Recheio do pão"
           arrayGenericCheckbox={arrayRecheio}
@@ -39,7 +41,7 @@ function Options({moment}) {
           arrayGeneric={arrayMolhos}
           moment={moment}
         />
-        </div>
+        </DivOption>
         
     );
 }

@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import ContextComponents from '../context/ContextComponents';
+import { LabelCenter } from '../Styles/home.styles'
+
 
 function Name() {
 
@@ -11,7 +13,7 @@ function nameIs({target}){
 }
 
     return (
-        <label>
+        <LabelCenter>
         Nome Favorito:
         <input
           type="text"
@@ -19,7 +21,7 @@ function nameIs({target}){
           onChange={nameIs}
           placeholder="Favoritar Nome"
         />
-        </label>
+        </LabelCenter>
     )
 }
 export default Name;

@@ -1,6 +1,34 @@
 import React, { useCallback } from 'react';
+import { DivCenter } from '../Styles/home.styles'
 
-function CardItem({name, bread, before, after}) {
+
+function CardItem({ name, bread, before, after }) {
+
+  const secondConditionReproductArrays = (item, length) => {
+
+      return (
+        
+      <tr key={`${Object.keys(item)}${length}`}>
+        <td key={`${Object.keys(item)}${length}`}>
+          {
+            Object.keys(item)
+          }
+        </td>
+        {
+          Object.values(item)?.map((elemento) => (
+            elemento.map((object, inject) => (
+              <td key={`${inject}`}>
+                {Object.values(object)[0] > 0 && `${Object.keys(object)[0]}:
+                   ${Object.values(object)[0]}`
+                   }
+              </td>
+            ))
+
+          ))
+        }
+      </tr>
+      )
+  }
 
 
   const reproductArrays = useCallback((genericArray) => (
@@ -28,34 +56,16 @@ function CardItem({name, bread, before, after}) {
           </tr>
         )
       }
-      return (
-        <tr key={`${Object.keys(item)}${length}`}>
-
-          <td key={`${Object.keys(item)}${length}`}>
-            {
-              Object.keys(item)
-            }
-          </td>
-          {
-            Object.values(item)?.map((elemento) => (
-              elemento.map((object, inject) => (
-                <td key={`${inject}`}>
-                  {Object.values(object)[0] > 0 && `${Object.keys(object)[0]}:
-                   ${Object.values(object)[0]}`}
-                </td>
-              ))
-
-            ))
-          }
-        </tr>
-      )
+      return (secondConditionReproductArrays(item, length))
     }
     )
+    
+
   ), [])
 
 
   return (
-    <div>
+    <DivCenter>
       <table>
         <thead>
           <tr>
@@ -68,9 +78,9 @@ function CardItem({name, bread, before, after}) {
           </tr>
           <tr>
             <td> {bread.length !== 0 &&
-            `Sabor do Pão: ${bread}`}</td>
+              `Sabor do Pão: ${bread}`}</td>
           </tr>
-          
+
         </tbody>
         <tfoot>
           <tr>
@@ -79,8 +89,11 @@ function CardItem({name, bread, before, after}) {
             </th>
           </tr>
           {
+
             reproductArrays(before)
           }
+                        
+          {console.log('lá vem')}
           <tr>
             <th>
               Depois do Forno:
@@ -91,7 +104,7 @@ function CardItem({name, bread, before, after}) {
           }
         </tfoot>
       </table>
-    </div>
+    </DivCenter>
   );
 }
 

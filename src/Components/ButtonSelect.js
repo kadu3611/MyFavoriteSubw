@@ -3,6 +3,7 @@ import ContextComponents from '../context/ContextComponents';
 import { collection, setDoc, doc } from 'firebase/firestore'
 import { db } from '../FIrebase/firebase-config'
 import { rulesName, rulesBeforeAndAfter } from './BusinessRules/businessRules'
+import { ButtonSave } from '../Styles/home.styles'
 
 
 function Button() {
@@ -26,13 +27,13 @@ function Button() {
     }
 
     return (
-        <button
+        <ButtonSave
             type='button'
             onClick={createName}
             disabled = {!disabledRules}
             >
             Salvar
-        </button>
+        </ButtonSave>
 
     );
 }

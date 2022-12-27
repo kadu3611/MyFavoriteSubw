@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, memo, useCallback } from 'react';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
 import ContextComponents from '../context/ContextComponents';
+import { DivButton, DivButtonList, LabelListItens } from '../Styles/home.styles';
 
 function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
 
@@ -79,15 +80,16 @@ function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
   }, [initial])
 
   const label = (
-    <div>
+    <DivButtonList>
       <button
         type="button"
         onClick={() => { setOptionButton(false) }}
       >{`${name}:`}
       </button>
-      <label>
+      <div>
         {xbutton.map((item, index) => (
-          <label key={index} name={Object.keys(item)}>
+          <div key={index}>
+          <LabelListItens key={index} name={Object.keys(item)}/>
             {Object.keys(item)}
             <button
               type="button"
@@ -101,26 +103,26 @@ function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
             >
               {`x${Object.values(item)}`}
             </button>
-          </label>
+          </div>
         )
         )
         }
-      </label>
+      </div>
       <button
         type="button"
         onClick={() => { funcTurnBack() }}
       >
         retornar
       </button>
-    </div>
+    </DivButtonList>
 
   );
   
 
   return (
-    <div>
+    <DivButton>
       {optionButton ? label : buttonOptionTrue}
-    </div>
+    </DivButton>
   );
 }
 

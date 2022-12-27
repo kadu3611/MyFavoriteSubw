@@ -1,8 +1,10 @@
 import React, { useEffect, memo, useContext, useState } from 'react';
 import { db } from '../FIrebase/firebase-config'
-import { collection, getDocs, doc, } from 'firebase/firestore'
+import { collection, getDocs} from 'firebase/firestore'
 import ContextComponents from '../context/ContextComponents';
 import CardItem from './CardItens';
+import { DivCenter } from '../Styles/home.styles'
+
 
 function Favorites() {
 
@@ -63,7 +65,7 @@ function Favorites() {
   }, [])
 
   return (
-    <div>
+    <DivCenter>
       Favoritados:
       {
         Object.values(allCard.props).length <= 0 ?
@@ -71,9 +73,7 @@ function Favorites() {
           :
           allCard
       }
-
-
-    </div>
+    </DivCenter>
 
   );
 }
