@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { objectArrays } from '../Arrays/arrays';
 import ContextComponents from "../context/ContextComponents";
-import { LabelRight } from '../Styles/home.styles'
+import { LabelRight, SelectName } from '../Styles/home.styles'
 
 
 function SaborPao() {
@@ -16,7 +16,7 @@ function SaborPao() {
   const select = (
     <LabelRight>
       Sabor do Pão:
-      <select
+      <SelectName
         name="saborPao"
         onClick={showCheckboxes}
       >
@@ -26,7 +26,7 @@ function SaborPao() {
           )
           )
         }
-      </select>
+      </SelectName>
     </LabelRight>
 
   );

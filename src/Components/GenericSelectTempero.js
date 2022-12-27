@@ -1,6 +1,8 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
+import { ButtonCheck } from '../Styles/home.styles';
+
 
 function GenericSelectTempero({ name, arrayGeneric, moment }) {
     const { genericAntes,
@@ -29,12 +31,12 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
     }, [setSelectAllArray, arrayOrdenado])
 
     const buttonOptionTrue = (
-        <button
+        <ButtonCheck
             type="button"
             onClick={() => func(setOptionButton)}
         >
             {`${name} =>`}
-        </button>
+        </ButtonCheck>
     );
 
     function assitentFuncBack(newAntes, genricType) {

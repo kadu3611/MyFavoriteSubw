@@ -6,7 +6,7 @@ import CardItem from './Components/CardItens';
 import ButtonSelect from './Components/ButtonSelect';
 import Favorites from './Components/Favorites';
 import ContextComponents from './context/ContextComponents';
-import { DotWrapper, FormWrapper, DivCenterBorderBlack } from './Styles/home.styles'
+import { DotWrapper, FormWrapper, DivCenterBorderBlack, DivCaption } from './Styles/home.styles'
 
 
 function HomePage() {
@@ -21,15 +21,15 @@ function HomePage() {
         <FormWrapper>
           <Name />
           <SaborPao />
-          <div>
+          <DivCaption>
             Antes do Forno:
-          </div>
+          </DivCaption>
           <Options
             moment="Antes do Forno"
           />
-          <div>
+          <DivCaption>
             Depois do Forno:
-          </div>
+          </DivCaption>
           <Options
             moment="Depois do Forno"
           />

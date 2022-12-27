@@ -61,11 +61,11 @@ function Favorites() {
   }
 
   useEffect(() => {
-    // getUsers()
+    getUsers()
   }, [])
 
   return (
-    <DivCenter>
+    <div>
       Favoritados:
       {
         Object.values(allCard.props).length <= 0 ?
@@ -73,7 +73,7 @@ function Favorites() {
           :
           allCard
       }
-    </DivCenter>
+    </div>
 
   );
 }

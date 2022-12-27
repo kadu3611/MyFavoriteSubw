@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, memo, useCallback } from 'react';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
 import ContextComponents from '../context/ContextComponents';
-import { DivButton, DivButtonList, LabelListItens } from '../Styles/home.styles';
+import { DivButton, DivButtonList, LabelListItens, ButtonCheck } from '../Styles/home.styles';
 
 function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
 
@@ -33,12 +33,12 @@ function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
 
 
   const buttonOptionTrue = (
-    <button
+    <ButtonCheck
       type="button"
       onClick={() => func(setOptionButton)}
     >
       {`${name} =>`}
-    </button>
+    </ButtonCheck>
   );
 
   const  somaArray = (itemName) => {

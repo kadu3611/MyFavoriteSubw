@@ -43,11 +43,25 @@ export const FormWrapper = styled.form`
 export const LabelCenter = styled.label`
     font-size: 20px;
     justify-content: left;
+    padding: 2px;
+`;
+
+export const InputName = styled.input`
+    font-size: 16px;
+    justify-content: left;
+    padding: 2px;
+`;
+
+export const SelectName = styled.select`
+    font-size: 16px;
+    justify-content: left;
+    padding: 2px;
 `;
 
 export const LabelRight = styled.label`
     font-size: 20px;
     justify-items: right;
+    padding: 2px;
     
 `;
 
@@ -87,6 +101,18 @@ export const DivButtonList = styled.div`
 export const LabelListItens = styled.label`
     display: flex;
     font-size: 16px;
+    padding-top: 2px;
+
+`;
+
+export const DivCaption = styled.div`
+    font-size: 24px;
+    padding: 2px;
+
+`;
+
+export const ButtonCheck = styled.button`
+    font-size: 14px;
     padding-top: 2px;
 
 `;
