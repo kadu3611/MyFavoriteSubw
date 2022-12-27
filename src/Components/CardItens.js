@@ -5,9 +5,8 @@ import { DivCenter } from '../Styles/home.styles'
 function CardItem({ name, bread, before, after }) {
 
   const secondConditionReproductArrays = (item, length) => {
-    const [teste] = Object.values(item)?.map((arr) => (Object.values(arr)
+    const [ruleArray] = Object.values(item)?.map((arr) => (Object.values(arr)
     ?.filter((elemento) => Object.values(elemento)[0] > 0)))
-    console.log(teste, 'teste');
       return (
         
       <tr key={`${Object.keys(item)}${length}`}>
@@ -17,7 +16,7 @@ function CardItem({ name, bread, before, after }) {
           }
         </td>
         {
-          teste.map((object, inject) => (
+          ruleArray.map((object, inject) => (
               <td key={`${inject}`}>
                 {
                 `${Object.keys(object)[0]}:
