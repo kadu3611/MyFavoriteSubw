@@ -5,7 +5,9 @@ import { DivCenter } from '../Styles/home.styles'
 function CardItem({ name, bread, before, after }) {
 
   const secondConditionReproductArrays = (item, length) => {
-
+    const [teste] = Object.values(item)?.map((arr) => (Object.values(arr)
+    ?.filter((elemento) => Object.values(elemento)[0] > 0)))
+    console.log(teste, 'teste');
       return (
         
       <tr key={`${Object.keys(item)}${length}`}>
@@ -15,16 +17,15 @@ function CardItem({ name, bread, before, after }) {
           }
         </td>
         {
-          Object.values(item)?.map((elemento) => (
-            elemento.map((object, inject) => (
+          teste.map((object, inject) => (
               <td key={`${inject}`}>
-                {Object.values(object)[0] > 0 && `${Object.keys(object)[0]}:
+                {
+                `${Object.keys(object)[0]}:
                    ${Object.values(object)[0]}`
                    }
               </td>
             ))
 
-          ))
         }
       </tr>
       )
