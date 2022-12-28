@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
-import { ButtonCheck } from '../Styles/home.styles';
+import { ButtonCheck, DivButtonList } from '../Styles/home.styles';
 
 
 function GenericSelectMolhos({ name, arrayGeneric, moment }) {
@@ -36,7 +36,7 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
             type="button"
             onClick={() => func(setOptionButton)}
         >
-            {`${name} =>`}
+            {`${name} >`}
         </ButtonCheck>
     );
 
@@ -93,11 +93,11 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
 
     const label = (
         <div>
-            <button
+            <ButtonCheck
                 type="button"
                 onClick={() => { setOptionButton(false) }}>
                 {`${name}`}:
-            </button>
+            </ButtonCheck>
             <select
                 onClick={showCheckboxes}
             >
@@ -121,7 +121,7 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
         initial()
     }, [initial])
     return (
-        <div>
+        <DivButtonList>
             {selectAllArray.length !== 0 &&
                 optionButton ?
                 <div>
@@ -130,7 +130,7 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
                 : buttonOptionTrue
 
             }
-        </div>
+        </DivButtonList>
     );
 }
 

@@ -1,9 +1,9 @@
 import React, { useContext, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { collection, setDoc, doc } from 'firebase/firestore'
-import { db } from '../FIrebase/firebase-config'
+import { db } from '../Firebase/firebase-config'
 import { rulesName, rulesBeforeAndAfter } from './BusinessRules/businessRules'
-import { ButtonSave } from '../Styles/home.styles'
+import { ButtonSaveFalse, ButtonSaveTrue } from '../Styles/home.styles'
 
 
 function Button() {
@@ -27,13 +27,22 @@ function Button() {
     }
 
     return (
-        <ButtonSave
+        disabledRules ? 
+        <ButtonSaveTrue
             type='button'
             onClick={createName}
             disabled = {!disabledRules}
             >
             Salvar
-        </ButtonSave>
+        </ButtonSaveTrue>
+        :
+        <ButtonSaveFalse
+            type='button'
+            onClick={createName}
+            disabled = {!disabledRules}
+            >
+            Salvar
+        </ButtonSaveFalse>
 
     );
 }

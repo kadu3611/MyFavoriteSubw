@@ -1,5 +1,5 @@
 import React, { useEffect, memo, useContext, useState } from 'react';
-import { db } from '../FIrebase/firebase-config'
+import { db } from '../Firebase/firebase-config'
 import { collection, getDocs} from 'firebase/firestore'
 import ContextComponents from '../context/ContextComponents';
 import CardItem from './CardItens';
@@ -61,7 +61,7 @@ function Favorites() {
   }
 
   useEffect(() => {
-    getUsers()
+    // getUsers()
   }, [])
 
   return (

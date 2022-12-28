@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import { DivCenter } from '../Styles/home.styles'
+import { DivCard, DivCenterCard, TableCard, TbodyCard,
+   TheadCard, TfootCard, DivInlinecard, TrCard, TdCard } from '../Styles/home.styles'
 
 
 function CardItem({ name, bread, before, after }) {
@@ -9,24 +10,24 @@ function CardItem({ name, bread, before, after }) {
     ?.filter((elemento) => Object.values(elemento)[0] > 0)))
       return (
         
-      <tr key={`${Object.keys(item)}${length}`}>
-        <td key={`${Object.keys(item)}${length}`}>
+      <TrCard key={`${Object.keys(item)}${length}`}>
+        <TdCard key={`${Object.keys(item)}${length}`}>
           {
-            Object.keys(item)
+            `${Object.keys(item)}:`
           }
-        </td>
+        </TdCard>
         {
           ruleArray.map((object, inject) => (
               <td key={`${inject}`}>
                 {
                 `${Object.keys(object)[0]}:
-                   ${Object.values(object)[0]}`
+                   ${Object.values(object)[0]},`
                    }
               </td>
             ))
 
         }
-      </tr>
+      </TrCard>
       )
   }
 
@@ -65,46 +66,47 @@ function CardItem({ name, bread, before, after }) {
 
 
   return (
-    <DivCenter>
-      <table>
-        <thead>
+    <DivCenterCard>
+    <DivCard>
+      <DivInlinecard>
+      <TableCard>
+        <TheadCard>
           <tr>
             <th> Meu lanche favorito !</th>
           </tr>
-        </thead>
-        <tbody>
+        </TheadCard>
+        <TbodyCard>
           <tr>
-            <td> Name: {name}</td>
+            <td> Nome: {name}</td>
           </tr>
           <tr>
             <td> {bread.length !== 0 &&
               `Sabor do Pão: ${bread}`}</td>
           </tr>
-
-        </tbody>
-        <tfoot>
-          <tr>
+        </TbodyCard>
+        <TfootCard>
+          <TrCard>
             <th>
               Antes do Forno:
             </th>
-          </tr>
+          </TrCard>
           {
 
             reproductArrays(before)
           }
-                        
-          {console.log('lá vem')}
-          <tr>
+          <TrCard>
             <th>
               Depois do Forno:
             </th>
-          </tr>
+          </TrCard>
           {
             reproductArrays(after)
           }
-        </tfoot>
-      </table>
-    </DivCenter>
+        </TfootCard>
+      </TableCard>
+      </DivInlinecard>
+    </DivCard>
+    </DivCenterCard>
   );
 }
 

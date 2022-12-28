@@ -37,7 +37,7 @@ function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
       type="button"
       onClick={() => func(setOptionButton)}
     >
-      {`${name} =>`}
+      {`${name} >`}
     </ButtonCheck>
   );
 
@@ -81,11 +81,11 @@ function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
 
   const label = (
     <DivButtonList>
-      <button
+      <ButtonCheck
         type="button"
         onClick={() => { setOptionButton(false) }}
       >{`${name}:`}
-      </button>
+      </ButtonCheck>
       <div>
         {xbutton.map((item, index) => (
           <div key={index}>

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
-import { ButtonCheck } from '../Styles/home.styles';
+import { ButtonCheck, DivButtonList } from '../Styles/home.styles';
 
 
 function GenericSelectTempero({ name, arrayGeneric, moment }) {
@@ -35,7 +35,7 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
             type="button"
             onClick={() => func(setOptionButton)}
         >
-            {`${name} =>`}
+            {`${name} >`}
         </ButtonCheck>
     );
 
@@ -87,11 +87,11 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
 
     const label = (
         <div>
-            <button
+            <ButtonCheck
                 type="button"
                 onClick={() => { setOptionButton(false) }}>
                 {`${name}`}:
-            </button>
+            </ButtonCheck>
             <select
                 onClick={showCheckboxes}
             >
@@ -115,7 +115,7 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
         initial()
     }, [initial])
     return (
-        <div>
+        <DivButtonList>
             {selectAllArray.length !== 0 &&
                 optionButton ?
                 <div>
@@ -124,7 +124,7 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
                 : buttonOptionTrue
 
             }
-        </div>
+        </DivButtonList>
     );
 }
 

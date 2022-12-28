@@ -18,7 +18,7 @@ export default function ProviderComponents({ children }) {
   const [selectCheckboxMolhosBefore, setSelectCheckboxMolhosBefore] = useState([]);
   const [selectCheckboxMolhosAfter, setSelectCheckboxMolhosAfter] = useState([]);
   const [allFavorites, setAllFavorites] = useState([]);
-  const [nameContext, setNameContext] = useState("")
+  const [nameContext, setNameContext] = useState("");
 
 console.log(genericAntes, "genericAntes no Provider");
 console.log(genericApos, "genericApos no Provider");
@@ -41,7 +41,7 @@ console.log(genericApos, "genericApos no Provider");
     selectCheckboxTemperoAfter, setSelectCheckboxTemperoAfter,
     selectCheckboxMolhosAfter, setSelectCheckboxMolhosAfter,
     nameContext, setNameContext,
-    allFavorites, setAllFavorites
+    allFavorites, setAllFavorites,
 
 }),[
     selectOptionPao,
@@ -61,7 +61,7 @@ console.log(genericApos, "genericApos no Provider");
     selectCheckboxTemperoAfter, setSelectCheckboxTemperoAfter,
     selectCheckboxMolhosAfter, setSelectCheckboxMolhosAfter,
     nameContext, setNameContext,
-    allFavorites, setAllFavorites
+    allFavorites, setAllFavorites,
 
   ]);
 
