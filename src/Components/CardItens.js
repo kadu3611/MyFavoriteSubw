@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import {
-  DivCard, DivCenterCard, TableCard, TbodyCard,
-  TheadCard, TfootCard, DivInlinecard, TrCard, TdCard
+  DivCard, DivCenterCard, DivItens, DivItensBefore, DivItensAfter, DivAjuste
 } from '../Styles/home.styles'
 
 
@@ -12,24 +11,24 @@ function CardItem({ name, bread, before, after }) {
       ?.filter((elemento) => Object.values(elemento)[0] > 0)))
     return (
 
-      <div key={`${Object.keys(item)}${length}`}>
-        <div key={`${Object.keys(item)}${length}`}>
+      <DivItens key={`${Object.keys(item)}${length}`}>
+        <DivItens key={`${Object.keys(item)}${length}`}>
           {
             `${Object.keys(item)}:`
           }
-        </div>
+        </DivItens>
         {
           ruleArray.map((object, inject) => (
-            <div key={`${inject}`}>
+            <DivItens key={`${inject}`}>
               {
                 `${Object.keys(object)[0]}:
                    ${Object.values(object)[0]},`
               }
-            </div>
+            </DivItens>
           ))
 
         }
-      </div>
+      </DivItens>
     )
   }
 
@@ -40,23 +39,23 @@ function CardItem({ name, bread, before, after }) {
         || Object.keys(item)[0] === 'Temperos'
         || Object.keys(item)[0] === 'Molhos') {
         return (
-          <div key={`${Object.keys(item)[0]}${length}`}>
-            <div key={`${Object.keys(item)}${length}`}>
+          <DivItens key={`${Object.keys(item)[0]}${length}`}>
+            <DivItens key={`${Object.keys(item)}${length}`}>
               {
                 `${Object.keys(item)[0]}:`
               }
-            </div>
+            </DivItens>
             {
               Object.values(item)?.map((elemento) => (
                 elemento.map((object, inject) => (
-                  <div key={`${inject}`}>
+                  <DivItens key={`${inject}`}>
                     {`${object}, `}
-                  </div>
+                  </DivItens>
                 ))
 
               ))
             }
-          </div>
+          </DivItens>
         )
       }
       return (secondConditionReproductArrays(item, length))
@@ -70,30 +69,26 @@ function CardItem({ name, bread, before, after }) {
   return (
     <DivCenterCard>
       <DivCard>
-        <DivInlinecard>
-          <div> Meu lanche favorito !</div>
-          <div> Nome: {name}</div>
-          <div> {bread.length !== 0 &&
+      <DivItens>
+          <DivItens> Meu lanche favorito !</DivItens>
+          <DivItens> Nome: {name}</DivItens>
+          <DivItens> {bread.length !== 0 &&
             `Sabor do Pão: ${bread}`}
-          </div>
-        </DivInlinecard>
-        <div>
-
-          Antes do Forno:
-        </div>
-        {
-
-          reproductArrays(before)
-        }
-        <div>
+          </DivItens>
+        <DivItensBefore>
+            Antes do Forno:
+            {
+              reproductArrays(before)
+            }
+        </DivItensBefore>
+        <DivItensAfter>
           Depois do Forno:
-        </div>
         {
           reproductArrays(after)
         }
-
-
-      </DivCard>
+      </DivItensAfter>
+      </DivItens>
+    </DivCard>
     </DivCenterCard >
   );
 }

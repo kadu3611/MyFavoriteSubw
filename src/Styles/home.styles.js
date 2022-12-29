@@ -46,12 +46,6 @@ export const DivCard = styled.div`
 
 `;
 
-export const DivInlinecard = styled.div`
-    display: inline;
-
-`;
-
-
 export const TableCard = styled.table`
     font-size: 20px;
     display: inline;
@@ -148,6 +142,8 @@ export const ButtonSaveFalse = styled.button`
     left: 40%;
     top: 10px;
     border-width: 0px;
+    border-radius: 10% 10% 30% 10%;
+
     :hover{
         //#2f803e
         //#DDDBBB
@@ -164,8 +160,10 @@ export const ButtonSaveTrue = styled.button`
     top: 10px;
     border-width: 0px;
     color: #2f803e;
-    border:  2px solid #ffc53d ;
+    border:  0px solid #ffc53d ;
     background-color: white;
+    border-radius: 10% 10% 30% 10%;
+
     :hover{
   cursor: pointe;
     transform: scale(1.05);
@@ -221,8 +219,24 @@ export const ButtonCheck = styled.button`
   cursor: pointe;
     transform: scale(1.05);
     }
+`;
 
 
+export const DivItens = styled.div`
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+`;
+export const DivItensBefore = styled.div`
+    display: flex;
+    
+`;
 
+export const DivItensAfter = styled.div`
+    display: flex;
+`;
+
+export const DivAjuste = styled.div`
+    display: flex;
 
 `;

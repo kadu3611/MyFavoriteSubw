@@ -61,7 +61,7 @@ function Favorites() {
   }
 
   useEffect(() => {
-    // getUsers()
+    getUsers()
   }, [])
 
   return (
