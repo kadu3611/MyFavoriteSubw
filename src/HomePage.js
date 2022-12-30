@@ -6,7 +6,8 @@ import CardItem from './Components/CardItens';
 import ButtonSelect from './Components/ButtonSave';
 import Favorites from './Components/Favorites';
 import ContextComponents from './context/ContextComponents';
-import { DotWrapper, FormWrapper, DivCenterBorderBlack, DivCaption } from './Styles/home.styles'
+import { DotWrapper, FormWrapper, DivCenterBorderBlack,
+   DivCaption, DivTitle } from './Styles/home.styles'
 
 
 function HomePage() {
@@ -15,8 +16,10 @@ function HomePage() {
     genericApos, nameContext } = useContext(ContextComponents);
 
   return (
-
     <DotWrapper>
+      <DivTitle>
+        {`MyFavoriteSubw : )`}
+      </DivTitle>
       <DivCenterBorderBlack>
         <FormWrapper>
           <Name />
@@ -38,14 +41,14 @@ function HomePage() {
 
 
       </DivCenterBorderBlack>
-        <CardItem
-          name={nameContext}
-          bread={selectOptionPao}
-          before={genericAntes}
-          after={genericApos}
-        />
+      <CardItem
+        name={nameContext}
+        bread={selectOptionPao}
+        before={genericAntes}
+        after={genericApos}
+      />
 
-        <Favorites />
+      <Favorites />
     </DotWrapper>
 
   );

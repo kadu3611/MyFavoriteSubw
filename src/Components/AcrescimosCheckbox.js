@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect, memo, useCallback } from 'react';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
 import ContextComponents from '../context/ContextComponents';
-import { DivButton, DivButtonList, LabelListItens, ButtonCheck } from '../Styles/home.styles';
+import { DivButton, DivButtonList, LabelListItens,
+   ButtonCheck, DivList } from '../Styles/home.styles';
 
 
 function AcrescimosCheckbox({ name, arrayGenericCheckbox, moment }) {
@@ -85,8 +86,8 @@ function AcrescimosCheckbox({ name, arrayGenericCheckbox, moment }) {
         onClick={() => { setOptionButton(false) }}
       >{`${name}:`}
       </ButtonCheck>
-      <div>
-        {xbutton.map((item, index) => (
+       <DivList>
+                {xbutton.map((item, index) => (
           <div key={index}>
           <LabelListItens key={index} name={Object.keys(item)}/>
             {Object.keys(item)}
@@ -106,7 +107,7 @@ function AcrescimosCheckbox({ name, arrayGenericCheckbox, moment }) {
         )
         )
         }
-      </div>
+      </DivList>
       <button
         type="button"
         onClick={() => { funcTurnBack() }}

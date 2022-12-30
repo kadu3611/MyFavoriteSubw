@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
-import { ButtonCheck, DivButtonList } from '../Styles/home.styles';
+import { ButtonCheck, DivButtonList, DivList } from '../Styles/home.styles';
 
 
 function GenericSelectMolhos({ name, arrayGeneric, moment }) {
@@ -72,11 +72,6 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
         setSelectArray([])
     }
 
-
-    // const memo = useMemo(() => (
-    //     selectArray
-    // ), [selectArray])
-
     function showCheckboxes({ target }) {
         const { value } = target;
         const filterArray = selectAllArray?.filter((item) => item !== value);
@@ -98,6 +93,7 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
                 onClick={() => { setOptionButton(false) }}>
                 {`${name}`}:
             </ButtonCheck>
+            <DivList>
             <select
                 onClick={showCheckboxes}
             >
@@ -107,6 +103,7 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
                 )
                 }
             </select>
+            </DivList>
             <button
                 type="button"
                 onClick={() => { funcBack() }}

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const DotWrapper = styled.div`
     background-color: #5a346c;
-
 `;
 
 export const DivCenterBorderBlack = styled.div`
@@ -11,7 +10,6 @@ export const DivCenterBorderBlack = styled.div`
     justify-content: space-evenly;
     align-items: center;
     background-color: #5a346c;
-
 `;
 
 export const DivCenter = styled.div`
@@ -21,7 +19,6 @@ export const DivCenter = styled.div`
     align-items: left;
     padding-left: 230px;
     background-color: #5a346c;
-
 `;
 
 export const DivCenterCard = styled.div`
@@ -30,97 +27,17 @@ export const DivCenterCard = styled.div`
     align-items: left;
     background-color: #5a346c;
     padding-left: 50px;
-
-
 `;
 
 export const DivCard = styled.div`
     display: flex;
     font-size: 20px;
     background-color: white;
-    padding: 10%;
+
     padding-top: 10px;
     padding-left: 5%;
-    padding-bottom: 7%;
     border-radius: 10% 10% 30% 10%;
 
-`;
-
-export const TableCard = styled.table`
-    font-size: 20px;
-    display: inline;
-    background-color: white;
-
-`;
-
-export const TheadCard = styled.thead`
-    display: inline;
-    background-color: white;
-
-`;
-
-export const TbodyCard = styled.tbody`
-    display: block;
-    background-color: white;
-
-`;
-
-export const TfootCard = styled.tfoot`
-    display: inline;
-    background-color: white;
-    width: 10%;
-
-`;
-
-export const TrCard = styled.tr`
-    display: flex;
-    background-color: white;
-
-`;
-
-export const TdCard = styled.td`
-        display: flex;
-    align-items: flex-start;
-    background-color: white;
-
-`;
-
-
-export const FormWrapper = styled.form`
-    justify-content: space-evenly;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    padding-right: 120px;
-    padding-left: 120px;
-
-`;
-
-export const LabelCenter = styled.label`
-    font-size: 20px;
-    justify-content: left;
-    padding: 2px;
-    color: white;
-`;
-
-export const InputName = styled.input`
-    font-size: 16px;
-    justify-content: left;
-    padding: 2px;
-`;
-
-export const SelectName = styled.select`
-    font-size: 16px;
-    justify-content: left;
-    padding: 2px;
-`;
-
-export const LabelRight = styled.label`
-    font-size: 20px;
-    justify-items: right;
-    padding: 2px;
-    color: white;
-
-    
 `;
 
 export const DivOption = styled.div`
@@ -132,6 +49,133 @@ export const DivOption = styled.div`
     padding: 15px;
     padding-top: 5px;
     background-color: #2f803e;
+
+`;
+
+export const DivButton = styled.div`
+    display: block;
+    font-size: 16px;
+    padding: 2px;
+
+`;
+
+export const DivButtonList = styled.div`
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px;
+    padding: 2px;
+
+`;
+
+export const DivList = styled.div`
+display: inline;
+    font-size: 16px;
+    padding-left: 5px;
+
+`;
+
+export const DivCaption = styled.div`
+    font-size: 24px;
+    padding: 4px;
+    color: white;
+`;
+
+export const DivItens = styled.div`
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+`;
+export const DivItensBefore = styled.div`
+    display: flex;
+    
+`;
+
+export const DivItensAfter = styled.div`
+    display: flex;
+`;
+
+export const DivAjuste = styled.div`
+    display: flex;
+
+`;
+
+export const DivFavoritos = styled.div`
+display: flex;
+font-size: 20px;
+color: white;
+justify-content: center;
+padding: 10px;
+`;
+
+export const DivFavoritosOrganizer = styled.div`
+padding-top: 20px;
+padding-bottom: 20px;
+padding-left: 50px;
+`;
+
+export const DivFavoritoStyle = styled.div`
+width: 100%;
+border-radius: 30% 10% 30% 10%;
+`;
+
+export const DivFavoritosButtom = styled.div`
+display: flex;
+padding-top: 2px;
+padding-bottom: 2px;
+justify-content: center;
+
+`;
+
+export const DivTitle = styled.div`
+    display: flex;
+    color:white;
+    justify-content: center;
+    font-size: 50px;
+    padding: 15px;
+
+`;
+
+export const ButtonFavoritos = styled.button`
+    display: flex;
+    font-size: 16px;
+    color: white;
+    height: 25px;
+    width: 200px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px 30px 50px 30px;
+    background-color: #2f803e;
+    color: black;
+    border-width: 0px;
+    :hover{
+        background-color: white;
+
+  cursor: pointe;
+    transform: scale(1.05);
+    }
+
+`;
+
+export const LabelCenter = styled.label`
+    font-size: 20px;
+    justify-content: left;
+    padding: 2px;
+    color: white;
+`;
+
+export const LabelRight = styled.label`
+    font-size: 20px;
+    justify-items: right;
+    padding: 2px;
+    color: white;
+`;
+
+export const LabelListItens = styled.label`
+    display: flex;
+    font-size: 16px;
+    padding-top: 2px;
+    color: white;
 
 `;
 
@@ -170,37 +214,6 @@ export const ButtonSaveTrue = styled.button`
     }
 `;
 
-export const DivButton = styled.div`
-    display: block;
-    font-size: 16px;
-    padding: 2px;
-
-`;
-
-export const DivButtonList = styled.div`
-    display: flex;
-    align-items: flex-start;
-    font-size: 16px;
-    padding: 2px;
-
-`;
-
-export const LabelListItens = styled.label`
-    display: flex;
-    font-size: 16px;
-    padding-top: 2px;
-    color: white;
-
-`;
-
-export const DivCaption = styled.div`
-    font-size: 24px;
-    padding: 4px;
-    color: white;
-
-
-`;
-
 export const ButtonCheck = styled.button`
     font-size: 14px;
     height: 25px;
@@ -221,22 +234,35 @@ export const ButtonCheck = styled.button`
     }
 `;
 
-
-export const DivItens = styled.div`
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-`;
-export const DivItensBefore = styled.div`
-    display: flex;
-    
+export const SelectName = styled.select`
+    font-size: 16px;
+    justify-content: left;
+    padding: 2px;
 `;
 
-export const DivItensAfter = styled.div`
-    display: flex;
+export const SelectList = styled.select`
+    font-size: 16px;
+    padding-left: 5px;
+
 `;
 
-export const DivAjuste = styled.div`
-    display: flex;
+export const InputName = styled.input`
+    font-size: 16px;
+    justify-content: left;
+    padding: 2px;
+`;
+
+export const InputFavorite = styled.input`
+    font-size: 14px;
+    justify-content: left;
+    padding: 2px;
+`;
+
+export const FormWrapper = styled.form`
+    justify-content: space-evenly;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-right: 120px;
+    padding-left: 120px;
 
 `;

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
-import { ButtonCheck, DivButtonList } from '../Styles/home.styles';
+import { ButtonCheck, DivButtonList, DivList } from '../Styles/home.styles';
 
 
 function GenericSelectTempero({ name, arrayGeneric, moment }) {
@@ -18,7 +18,7 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
     const [selectArray, setSelectArray] = useState([]);
 
     const selectAllArray = selectCheckboxTemperoBefore
-    const setSelectAllArray = setSelectCheckboxTemperoBefore 
+    const setSelectAllArray = setSelectCheckboxTemperoBefore
 
     const generic = moment === 'Antes do Forno' ? genericAntes : genericApos
     const setGeneric = moment === 'Antes do Forno' ? setGenericAntes : setGenericApos
@@ -92,15 +92,17 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
                 onClick={() => { setOptionButton(false) }}>
                 {`${name}`}:
             </ButtonCheck>
-            <select
-                onClick={showCheckboxes}
-            >
-                {selectAllArray?.map((item, index) => (
-                    <option key={index} name={item}>{item} </option>
-                )
-                )
-                }
-            </select>
+            <DivList>
+                <select
+                    onClick={showCheckboxes}
+                >
+                    {selectAllArray?.map((item, index) => (
+                        <option key={index} name={item}>{item} </option>
+                    )
+                    )
+                    }
+                </select>
+            </DivList>
             <button
                 type="button"
                 onClick={() => { funcBack() }}

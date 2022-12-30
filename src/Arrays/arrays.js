@@ -5,7 +5,7 @@ const objectArrays = {
   arrayTemperos: ["Sal", "Pimenta", "Orégano", "Azeite", "Vinagre"],
 
   arrayMolhos: ["Cebola Agridoce", "Chipotle(picante)", "Barbecue", "Parmesão",
-    "Maionese Temperada", "Mostarda e Mel", "Supreme"],
+    "Maionese Temperada", "Mostarda e Mel", "Supreme", "Maionese"],
 
   arrayAcrescimos: [{ "Batata Rosti": 0 }, { "Queijo": 0 }, { "Bacon": 0 },
   { "Pepperoni": 0 }, { "Cheddar Cremoso": 0 }, { "Cheddar Veg Cremoso": 0 },
