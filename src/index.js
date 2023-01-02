@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import HomePage from './HomePage';
+import HomePage from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import ProviderComponents from './context/ProviderComponents';
