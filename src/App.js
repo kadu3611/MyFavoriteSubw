@@ -38,8 +38,6 @@ function HomePage() {
           />
           <ButtonSelect />
         </FormWrapper>
-
-
       </DivCenterBorderBlack>
       <CardItem
         name={nameContext}
