@@ -8,7 +8,7 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     const { genericAntes,
         setGenericAntes,
         selectCheckboxSaladBefore, setSelectCheckboxaladBefore,
-        genericApos, setGenericApos,
+        genericApos, setGenericApos,selectDisable, setSelectDisable
 
     } = useContext(ContextComponents);
 
@@ -17,8 +17,12 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     const [optionButton, setOptionButton] = useState(false);
     const [selectArray, setSelectArray] = useState([]);
 
+
     const selectAllArray = selectCheckboxSaladBefore
     const setSelectAllArray = setSelectCheckboxaladBefore
+
+    const disableList = selectDisable;
+    const setDisableList = setSelectDisable;
 
     const generic = moment === 'Antes do Forno' ? genericAntes : genericApos
     const setGeneric = moment === 'Antes do Forno' ? setGenericAntes : setGenericApos
@@ -26,8 +30,10 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     const initial = useCallback(() => {
 
         setSelectAllArray(arrayOrdenado)
+        setDisableList([0, 0, 0, 0, 0, 0, 0, 0])
+        console.log('tste');
 
-    }, [setSelectAllArray, arrayOrdenado])
+    }, [setSelectAllArray, arrayOrdenado, setDisableList])
 
     const buttonOptionTrue = (
         <ButtonCheck
@@ -70,19 +76,25 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         setSelectArray([])
     }
 
-    function showCheckboxes({ target }) {
-        const { value } = target;
-        const filterArray = selectAllArray?.filter((item) => item !== value);
-        setSelectAllArray(filterArray);
+
+    const showCheckboxesTrue = useCallback((value) => {
+        actualSetList(name, value, generic, setGeneric);
+    },[generic, name, setGeneric])
+
+    const showCheckboxes = useCallback((value, index) => {
+        // const { value } = target;
+        // setSelectAllArray(selectAllArray);
         selectArray.push(value)
+        const arrayDisable = disableList
+        arrayDisable.splice(index, 1, 1)
+        setDisableList(arrayDisable)
+        console.log(disableList, 'disableList');
         setSelectArray(selectArray);
         showCheckboxesTrue(selectArray);
 
-    }
+    }, [selectArray, disableList, showCheckboxesTrue, setDisableList])
 
-    function showCheckboxesTrue(value) {
-        actualSetList(name, value, generic, setGeneric);
-    }
+
 
     const label = (
         <div>
@@ -92,15 +104,19 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
                 {`${name}`}:
             </ButtonCheck>
             <DivList>
-                <select
-                    onClick={showCheckboxes}
+                <div
+                    type="button"
                 >
                     {selectAllArray?.map((item, index) => (
-                        <option key={index} name={item}>{item} </option>
+                        <button key={index}
+                            onClick={() => showCheckboxes(item, index)}
+                            disabled={disableList[index]}
+                            type="button"
+                            value={item}>{item}</button>
                     )
                     )
                     }
-                </select>
+                </div>
             </DivList>
             <button
                 type="button"
@@ -112,9 +128,15 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     );
 
 
+
     useEffect(() => {
         initial()
-    }, [initial])
+    }, [initial]);
+
+    useEffect(() => {
+
+    }, [disableList, selectAllArray])
+
     return (
         <DivButtonList>
             {selectAllArray.length !== 0 &&

@@ -7,8 +7,9 @@ const objectArrays = {
   arrayMolhos: ["Cebola Agridoce", "Chipotle(picante)", "Barbecue", "Parmesão",
     "Maionese Temperada", "Mostarda e Mel", "Supreme", "Maionese"],
 
-  arrayAcrescimos: [{ "Batata Rosti": 0 }, { "Queijo": 0 }, { "Bacon": 0 },
-  { "Pepperoni": 0 }, { "Cheddar Cremoso": 0 }, { "Cheddar Veg Cremoso": 0 },
+  arrayAcrescimos: [{ "Batata Rosti": 0 }, { "Mussarela": 0 }, { "Cheddar": 0 },
+   { "Queijo Suiço": 0 },{ "Bacon": 0 }, { "Pepperoni": 0 }, { "Cheddar Cremoso": 0 },
+   { "Cheddar Veg Cremoso": 0 },
   { "Cream Cheese": 0 }],
 
   arrayRecheio: [{ "Frango Assado": 0 }, { "Carne Defumada com C. Cheese": 0 },

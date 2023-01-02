@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const DotWrapper = styled.div`
     background-color: #5a346c;
+    width: 100%;
 `;
 
 export const DivCenterBorderBlack = styled.div`
@@ -10,6 +11,7 @@ export const DivCenterBorderBlack = styled.div`
     justify-content: space-evenly;
     align-items: center;
     background-color: #5a346c;
+    padding-bottom: 30px;
 `;
 
 export const DivCenter = styled.div`
@@ -260,9 +262,7 @@ export const InputFavorite = styled.input`
 
 export const FormWrapper = styled.form`
     justify-content: space-evenly;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    padding-right: 120px;
-    padding-left: 120px;
+    padding-bottom: 10px;
+
 
 `;
