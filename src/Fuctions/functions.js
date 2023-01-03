@@ -4,16 +4,21 @@ function func(option){
 
 const actualSetList = (name, newDate, newArray, setNewArray) => {
   let finish = false
-  const arrayTeste = newArray;
+  const arrayList = newArray;
   if (newArray.length < 1 && !finish) {
     setNewArray([{ [name]: newDate }])
   }
+  else if(newDate.length === 0){
+    console.log(name, 'name');
+    const newArrayList = arrayList.filter((item) => Object.keys(item)[0] !== name)
+    setNewArray(newArrayList)
+  }
   else {
     newArray?.forEach((elemento, index) => {
-      if (arrayTeste.some((item) => Object.keys(item)[0] === name) &&
+      if (arrayList.some((item) => Object.keys(item)[0] === name) &&
        Object.keys(elemento)[0] === name) {
-        arrayTeste.splice(index, 1, { [name]: newDate })
-        setNewArray(arrayTeste);
+        arrayList.splice(index, 1, { [name]: newDate })
+        setNewArray(arrayList);
         finish = true;
       }
       if(!finish){

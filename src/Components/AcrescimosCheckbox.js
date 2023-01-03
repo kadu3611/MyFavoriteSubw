@@ -40,7 +40,7 @@ function AcrescimosCheckbox({ name, arrayGenericCheckbox, moment }) {
     </ButtonCheck>
   );
 
-  const  somaArray = (itemName) => {
+  const somaArray = (itemName) => {
     if(itemName){
     const numberSoma = xbutton.map((item) => {
       if (Object.keys(item)[0] === itemName[0]) {

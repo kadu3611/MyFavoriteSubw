@@ -24,8 +24,6 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
     const setGeneric = moment === 'Antes do Forno' ? setGenericAntes : setGenericApos
 
     const initial = useCallback(() => {
-        // setGenericAntes((back) => [...back, { [name]: [] }])
-
         setSelectAllArray(arrayOrdenado)
 
     }, [setSelectAllArray, arrayOrdenado])

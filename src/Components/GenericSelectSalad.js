@@ -8,32 +8,27 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     const { genericAntes,
         setGenericAntes,
         selectCheckboxSaladBefore, setSelectCheckboxaladBefore,
-        genericApos, setGenericApos,selectDisable, setSelectDisable
-
+        genericApos, setGenericApos, selectArray, setSelectArray,
     } = useContext(ContextComponents);
 
     const arrayOrdenado = arrayGeneric.sort()
 
     const [optionButton, setOptionButton] = useState(false);
-    const [selectArray, setSelectArray] = useState([]);
+  const [disableCheck, setDisableCheck] = useState([0,0,0,0,0,0,0,0]);
 
 
     const selectAllArray = selectCheckboxSaladBefore
     const setSelectAllArray = setSelectCheckboxaladBefore
 
-    const disableList = selectDisable;
-    const setDisableList = setSelectDisable;
+    const newListSelect = selectArray
+    const setNewListSelect = setSelectArray
 
     const generic = moment === 'Antes do Forno' ? genericAntes : genericApos
     const setGeneric = moment === 'Antes do Forno' ? setGenericAntes : setGenericApos
 
     const initial = useCallback(() => {
-
         setSelectAllArray(arrayOrdenado)
-        setDisableList([0, 0, 0, 0, 0, 0, 0, 0])
-        console.log('tste');
-
-    }, [setSelectAllArray, arrayOrdenado, setDisableList])
+    }, [setSelectAllArray, arrayOrdenado])
 
     const buttonOptionTrue = (
         <ButtonCheck
@@ -44,25 +39,25 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         </ButtonCheck>
     );
 
-    function assitentFuncBack(newAntes, genricType) {
-        const trueApos = genricType?.filter((item) => Object.keys(item)[0] === name)
-        if (trueApos.length < 1) {
+    const assitentFuncBack = (newAntes, genricType) => {
+        const trueAfter = genricType?.filter((item) => Object.keys(item)[0] === name)
+        if (trueAfter.length < 1) {
             const newGeneric = functionBack(name, generic)
             setGeneric(newGeneric)
             setSelectAllArray(arrayOrdenado)
         } else {
             arrayOrdenado.forEach(function (element) {
-                if (Object.values(trueApos[0])[0].indexOf(element) === -1)
+                if (Object.values(trueAfter[0])[0].indexOf(element) === -1)
                     newAntes.push(element);
             });
             setSelectAllArray(newAntes)
         }
+
     }
 
-    function funcBack() {
+    const funcBack = () => {
         let newAntes = []
         let newApos = []
-
         if (generic.length !== 0) {
             if (moment === 'Antes do Forno') {
                 assitentFuncBack(newAntes, genericApos)
@@ -73,27 +68,33 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         }
         const newGeneric = functionBack(name, generic)
         setGeneric(newGeneric)
-        setSelectArray([])
+        setNewListSelect([])
+        setDisableCheck([0,0,0,0,0,0,0,0])
+        // setSelectAllArray(selectAllArray)
+        console.log('PASSSA?');
+
+
     }
 
-
-    const showCheckboxesTrue = useCallback((value) => {
+    const showCheckboxesTrue = (value) => {
         actualSetList(name, value, generic, setGeneric);
-    },[generic, name, setGeneric])
+    }
 
-    const showCheckboxes = useCallback((value, index) => {
-        // const { value } = target;
-        // setSelectAllArray(selectAllArray);
-        selectArray.push(value)
-        const arrayDisable = disableList
-        arrayDisable.splice(index, 1, 1)
-        setDisableList(arrayDisable)
-        console.log(disableList, 'disableList');
-        setSelectArray(selectArray);
-        showCheckboxesTrue(selectArray);
-
-    }, [selectArray, disableList, showCheckboxesTrue, setDisableList])
-
+    const showCheckboxes = (value, index) => {
+        if (newListSelect.includes(value)) {
+            disableCheck.splice(index, 1, 0)
+            const newArray = newListSelect.filter((item) => item !== value)
+            setNewListSelect(newArray)
+            showCheckboxesTrue(newArray)
+            console.log('if');
+        } else {
+            disableCheck.splice(index, 1, 1)
+            console.log('aqui');
+            const newSelectArray = [...newListSelect, value]
+            setNewListSelect(newSelectArray);   
+            showCheckboxesTrue(newSelectArray);
+        }
+    }
 
 
     const label = (
@@ -104,46 +105,38 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
                 {`${name}`}:
             </ButtonCheck>
             <DivList>
-                <div
-                    type="button"
-                >
+                <div>
                     {selectAllArray?.map((item, index) => (
-                        <button key={index}
-                            onClick={() => showCheckboxes(item, index)}
-                            disabled={disableList[index]}
-                            type="button"
-                            value={item}>{item}</button>
+                        <label key={index}>
+                            {item}
+                            <input type="checkbox"
+                                onChange={() => showCheckboxes(item, index)}
+                                checked={disableCheck[index]}
+                            />
+                        </label>
                     )
                     )
                     }
                 </div>
-            </DivList>
+            </DivList >
             <button
                 type="button"
                 onClick={() => { funcBack() }}
             >
                 retornar
             </button>
-        </div>
+        </div >
     );
-
-
 
     useEffect(() => {
         initial()
-    }, [initial]);
-
-    useEffect(() => {
-
-    }, [disableList, selectAllArray])
+    }, [initial, disableCheck]);
 
     return (
         <DivButtonList>
             {selectAllArray.length !== 0 &&
                 optionButton ?
-                <div>
-                    {label}
-                </div>
+                label
                 : buttonOptionTrue
 
             }
