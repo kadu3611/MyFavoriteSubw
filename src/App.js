@@ -2,7 +2,6 @@ import React, { memo, useContext } from 'react';
 import SaborPao from './Components/SaborPao';
 import Name from './Components/Name';
 import Options from './Components/Options';
-import OptionsAfter from './Components/OptionsAfter'
 import CardItem from './Components/CardItens';
 import ButtonSelect from './Components/ButtonSave';
 import Favorites from './Components/Favorites';
@@ -34,7 +33,7 @@ function HomePage() {
           <DivCaption>
             Depois do Forno:
           </DivCaption>
-          <OptionsAfter
+          <Options
             moment="Depois do Forno"
           />
           <ButtonSelect />
