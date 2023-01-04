@@ -2,9 +2,11 @@ import React, { useState, useContext, useEffect, memo, useCallback } from 'react
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
 import ContextComponents from '../context/ContextComponents';
 import {
-  DivButton, DivButtonList,
-  LabelListItens, ButtonCheck, DivList
+  DivButton, DivButtonList, LabelListItens, ButtonCheck,
+   DivList, ButtonReturn, DivSelect, ButtonSelect
 } from '../Styles/home.styles';
+import Return from '../Styles/imagens/return.svg'
+
 
 function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
 
@@ -92,34 +94,42 @@ function RecheioCheckbox({ name, arrayGenericCheckbox, moment }) {
       >
         {`${name}:`}
       </ButtonCheck>
+      <ButtonReturn
+        type="button"
+        onClick={() => { funcTurnBack() }}
+      >
+        <img
+          alt="tick icon"
+          style={{ width: '15px' }}
+          src={Return}
+        />
+      </ButtonReturn>
       <DivList>
         {xbutton.map((item, index) => (
-          <div key={index}>
-            <LabelListItens key={index} name={Object.keys(item)} />
-            {Object.keys(item)}
-            <button
+          <DivSelect key={index}>
+            <LabelListItens key={index} name={Object.keys(item)}>
+              {Object.keys(item)}
+              <DivButtonList>
+              <ButtonSelect
+                type="button"
+                onClick={() => { somaArray(Object.keys(item)) }}
+              >
+                {`x${Object.values(item)}`}
+              </ButtonSelect>
+              </DivButtonList>
+            </LabelListItens>
+            <ButtonSelect
               type="button"
               onClick={() => { subtractionArray(Object.keys(item)) }}
             >
               {`-`}
-            </button>
-            <button
-              type="button"
-              onClick={() => { somaArray(Object.keys(item)) }}
-            >
-              {`x${Object.values(item)}`}
-            </button>
-          </div>
+            </ButtonSelect>
+          </DivSelect>
         )
         )
         }
       </DivList>
-      <button
-        type="button"
-        onClick={() => { funcTurnBack() }}
-      >
-        retornar
-      </button>
+
     </DivButtonList>
 
   );

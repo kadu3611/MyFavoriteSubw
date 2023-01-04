@@ -37,7 +37,6 @@ export const DivCard = styled.div`
     display: flex;
     font-size: 20px;
     background-color: white;
-
     padding-top: 10px;
     padding-left: 5%;
     border-radius: 10% 10% 30% 10%;
@@ -71,10 +70,13 @@ export const DivButtonList = styled.div`
 `;
 
 export const DivList = styled.div`
-display: inline;
     font-size: 16px;
     padding-left: 5px;
-    
+`;
+
+export const DivSelect = styled.div`
+    display: flex;
+    padding-left: 10px;
 `;
 
 export const DivCaption = styled.div`
@@ -274,9 +276,9 @@ font-size:16px;
     border: 0px solid;
     padding-left: 10px;
     padding-right: 10px;
-
     background: #2f803e;
     justify-content: center;
+    color: #ffc53d;
     :hover{
         //#2f803e
         //#DDDBBB
@@ -290,12 +292,15 @@ font-size:16px;
 export const ButtonReturn = styled.button`
     font-size:14px;
     border: 0px solid;
-    padding: 5px;
+    padding: 4px;
     justify-content: center;
     background:#2f803e;
+    border: 1px solid #ffc53d;
+    border-radius: 10% 10% 30% 10%;
+    left: 6px;
     position: relative;
-  left: 150px;
-  bottom:200px;
+
+
     :hover{
         //#2f803e
         //#DDDBBB
