@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, memo, useCallback } from 'react
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
 import ContextComponents from '../context/ContextComponents';
 import { DivButton, DivButtonList, LabelListItens,
-   ButtonCheck, DivList } from '../Styles/home.styles';
+   ButtonCheck, DivList, ButtonSelect } from '../Styles/home.styles';
 
 
 function AcrescimosCheckbox({ name, arrayGenericCheckbox, moment }) {
@@ -89,20 +89,25 @@ function AcrescimosCheckbox({ name, arrayGenericCheckbox, moment }) {
        <DivList>
                 {xbutton.map((item, index) => (
           <div key={index}>
-          <LabelListItens key={index} name={Object.keys(item)}/>
+          <LabelListItens key={index} name={Object.keys(item)}>
             {Object.keys(item)}
-            <button
-              type="button"
-              onClick={() => { subtractionArray(Object.keys(item)) }}
-            >
-              {`-`}
-            </button>
-            <button
+            
+            <ButtonSelect
+            name={Object.keys(item)}
               type="button"
               onClick={() => { somaArray(Object.keys(item)) }}
             >
               {`x${Object.values(item)}`}
-            </button>
+            </ButtonSelect>
+            </LabelListItens>
+            <ButtonSelect
+              type="button"
+              onClick={() => { subtractionArray(Object.keys(item)) }}
+            >
+              {`-`}
+            </ButtonSelect>
+            
+
           </div>
         )
         )

@@ -24,11 +24,13 @@ export const DivCenter = styled.div`
 `;
 
 export const DivCenterCard = styled.div`
-    font-size: 20px;
     justify-content: left;
     align-items: left;
     background-color: #5a346c;
-    padding-left: 50px;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    top: 10px;
 `;
 
 export const DivCard = styled.div`
@@ -51,7 +53,6 @@ export const DivOption = styled.div`
     padding: 15px;
     padding-top: 5px;
     background-color: #2f803e;
-
 `;
 
 export const DivButton = styled.div`
@@ -62,7 +63,7 @@ export const DivButton = styled.div`
 `;
 
 export const DivButtonList = styled.div`
-    display: flex;
+    display: inline;
     align-items: flex-start;
     font-size: 16px;
     padding: 2px;
@@ -73,7 +74,7 @@ export const DivList = styled.div`
 display: inline;
     font-size: 16px;
     padding-left: 5px;
-
+    
 `;
 
 export const DivCaption = styled.div`
@@ -130,11 +131,16 @@ justify-content: center;
 
 export const DivTitle = styled.div`
     display: flex;
+    width: 100%;
     color:white;
+    padding-top: 20px;
+    padding-bottom: 20px;
     justify-content: center;
     font-size: 50px;
-    padding: 15px;
+`;
 
+export const DivSeparator = styled.div`
+   padding: 5px;
 `;
 
 export const ButtonFavoritos = styled.button`
@@ -174,10 +180,37 @@ export const LabelRight = styled.label`
 `;
 
 export const LabelListItens = styled.label`
-    display: flex;
-    font-size: 16px;
+    display: inline;
+    font-size: 18px;
     padding-top: 2px;
-    color: white;
+    padding-right: 2px;
+    color: black;
+    :hover{
+        //#2f803e
+        //#DDDBBB
+        color: white;
+    transform: scale(1.05);
+    }
+    
+`;
+
+export const LabelCheckbox = styled.label`
+    display: flex;
+    font-size: 18px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+   img {
+      display: ${props => props.checked ? 'flex' : 'none'};
+      filter: invert(75%) sepia(11%) saturate(6042%) hue- rotate(30deg) brightness(105%) contrast(68%);
+      padding-left: 3px;
+   }
+   :hover{
+        //#2f803e
+        //#DDDBBB
+        color: white;
+    transform: scale(1.05);
+    padding-left: 18px;
+    }
 
 `;
 
@@ -236,6 +269,44 @@ export const ButtonCheck = styled.button`
     }
 `;
 
+export const ButtonSelect = styled.button`
+font-size:16px;
+    border: 0px solid;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background: #2f803e;
+    justify-content: center;
+    :hover{
+        //#2f803e
+        //#DDDBBB
+  cursor: pointe;
+    transform: scale(1.05);
+    border: 1px solid white;
+    
+    }
+`;
+
+export const ButtonReturn = styled.button`
+    font-size:14px;
+    border: 0px solid;
+    padding: 5px;
+    justify-content: center;
+    background:#2f803e;
+    position: relative;
+  left: 150px;
+  bottom:200px;
+    :hover{
+        //#2f803e
+        //#DDDBBB
+  cursor: pointe;
+    border: 1px solid white;
+    border-radius: 10% 10% 30% 10%;
+
+    }
+`;
+
+
 export const SelectName = styled.select`
     font-size: 16px;
     justify-content: left;
@@ -260,9 +331,20 @@ export const InputFavorite = styled.input`
     padding: 2px;
 `;
 
+export const InputCheckbox = styled.input.attrs({ type: 'checkbox' })`
+display: grid;
+overflow: hidden;
+   white-space: nowrap;width: 1px;
+   height: 1px;
+   margin: -1px;
+   padding: 2px;
+  
+     
+`;
+
 export const FormWrapper = styled.form`
     justify-content: space-evenly;
     padding-bottom: 10px;
-
+    width:60%
 
 `;

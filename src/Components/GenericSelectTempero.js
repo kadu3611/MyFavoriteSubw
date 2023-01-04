@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
-import { ButtonCheck, DivButtonList, DivList } from '../Styles/home.styles';
+import { ButtonCheck, DivButtonList, DivList, DivButton } from '../Styles/home.styles';
 
 
 function GenericSelectTempero({ name, arrayGeneric, moment }) {
@@ -29,12 +29,14 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
     }, [setSelectAllArray, arrayOrdenado])
 
     const buttonOptionTrue = (
-        <ButtonCheck
-            type="button"
-            onClick={() => func(setOptionButton)}
-        >
-            {`${name} >`}
-        </ButtonCheck>
+        <DivButtonList>
+            <ButtonCheck
+                type="button"
+                onClick={() => func(setOptionButton)}
+            >
+                {`${name} >`}
+            </ButtonCheck>
+        </DivButtonList>
     );
 
     function assitentFuncBack(newAntes, genricType) {
@@ -115,7 +117,7 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
         initial()
     }, [initial])
     return (
-        <DivButtonList>
+        <DivButton>
             {selectAllArray.length !== 0 &&
                 optionButton ?
                 <div>
@@ -124,7 +126,7 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
                 : buttonOptionTrue
 
             }
-        </DivButtonList>
+        </DivButton>
     );
 }
 

@@ -1,7 +1,12 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
-import { ButtonCheck, DivButtonList, DivList } from '../Styles/home.styles';
+import {
+    ButtonCheck, DivButtonList, DivList, LabelCheckbox,
+    InputCheckbox, ButtonReturn, DivButton } from '../Styles/home.styles';
+import CheckIcon from '../Styles/imagens/visto.png'
+import Return from '../Styles/imagens/return.svg'
+
 
 
 function GenericSelectSalad({ name, arrayGeneric, moment }) {
@@ -14,7 +19,7 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     const arrayOrdenado = arrayGeneric.sort()
 
     const [optionButton, setOptionButton] = useState(false);
-  const [disableCheck, setDisableCheck] = useState([0,0,0,0,0,0,0,0]);
+    const [disableCheck, setDisableCheck] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
 
 
     const selectAllArray = selectCheckboxSaladBefore
@@ -31,12 +36,14 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     }, [setSelectAllArray, arrayOrdenado])
 
     const buttonOptionTrue = (
-        <ButtonCheck
-            type="button"
-            onClick={() => func(setOptionButton)}
-        >
-            {`${name} >`}
-        </ButtonCheck>
+        <DivButtonList>
+            <ButtonCheck
+                type="button"
+                onClick={() => func(setOptionButton)}
+            >
+                {`${name} >`}
+            </ButtonCheck>
+        </DivButtonList>
     );
 
     const assitentFuncBack = (newAntes, genricType) => {
@@ -69,7 +76,7 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         const newGeneric = functionBack(name, generic)
         setGeneric(newGeneric)
         setNewListSelect([])
-        setDisableCheck([0,0,0,0,0,0,0,0])
+        setDisableCheck([0, 0, 0, 0, 0, 0, 0, 0])
         // setSelectAllArray(selectAllArray)
         console.log('PASSSA?');
 
@@ -91,14 +98,14 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
             disableCheck.splice(index, 1, 1)
             console.log('aqui');
             const newSelectArray = [...newListSelect, value]
-            setNewListSelect(newSelectArray);   
+            setNewListSelect(newSelectArray);
             showCheckboxesTrue(newSelectArray);
         }
     }
 
 
     const label = (
-        <div>
+        <DivButtonList>
             <ButtonCheck
                 type="button"
                 onClick={() => { setOptionButton(false) }}>
@@ -107,25 +114,40 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
             <DivList>
                 <div>
                     {selectAllArray?.map((item, index) => (
-                        <label key={index}>
+                        <LabelCheckbox
+                            key={index}
+                            checked={disableCheck[index]}
+                        >
+
                             {item}
-                            <input type="checkbox"
+                            <img
+                                alt="tick icon"
+                                style={{ width: '15px' }}
+                                src={CheckIcon}
+                            />
+                            <InputCheckbox
+                                type="checkbox"
                                 onChange={() => showCheckboxes(item, index)}
                                 checked={disableCheck[index]}
                             />
-                        </label>
+                        </LabelCheckbox>
                     )
                     )
                     }
                 </div>
             </DivList >
-            <button
+            <ButtonReturn
                 type="button"
                 onClick={() => { funcBack() }}
+
             >
-                retornar
-            </button>
-        </div >
+                <img
+                    alt="tick icon"
+                    style={{ width: '15px' }}
+                    src={Return}
+                />
+            </ButtonReturn>
+        </DivButtonList >
     );
 
     useEffect(() => {
@@ -133,14 +155,14 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     }, [initial, disableCheck]);
 
     return (
-        <DivButtonList>
+        <DivButton>
             {selectAllArray.length !== 0 &&
                 optionButton ?
                 label
                 : buttonOptionTrue
 
             }
-        </DivButtonList>
+        </DivButton>
     );
 }
 
