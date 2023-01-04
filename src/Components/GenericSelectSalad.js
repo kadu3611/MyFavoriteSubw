@@ -2,10 +2,9 @@ import React, { useState, useContext, useCallback, useEffect, memo } from 'react
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
 import {
-    ButtonCheck, DivButtonList, DivList, LabelCheckbox,
-    InputCheckbox, ButtonReturn, DivButton
+    ButtonCheck, DivButtonList, DivList,
+    ButtonReturn, DivButton, DivlistItens, ButtonSelectItem
 } from '../Styles/home.styles';
-import CheckIcon from '../Styles/imagens/check.svg'
 import Return from '../Styles/imagens/return.svg'
 
 
@@ -20,9 +19,6 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     const arrayOrdenado = arrayGeneric.sort()
 
     const [optionButton, setOptionButton] = useState(false);
-
-    const [disableCheck, setDisableCheck] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
-
 
     const selectAllArray = selectCheckboxSaladBefore
     const setSelectAllArray = setSelectCheckboxaladBefore
@@ -79,11 +75,7 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         const newGeneric = functionBack(name, generic)
         setGeneric(newGeneric)
         setNewListSelect([])
-        setDisableCheck([0, 0, 0, 0, 0, 0, 0, 0])
-        // setSelectAllArray(selectAllArray)
-        console.log('PASSSA?');
-
-
+        setSelectAllArray(arrayOrdenado)
     }
 
     const showCheckboxesTrue = (value) => {
@@ -97,7 +89,6 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         setNewListSelect(newSelectArray);
         showCheckboxesTrue(newSelectArray);
     }
-
 
 
     const label = (
@@ -118,21 +109,20 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
                     src={Return}
                 />
             </ButtonReturn>
-            <DivList>
-                <div>
+
+                <DivlistItens>
                     {selectAllArray?.map((item, index) => (
-                        <button
+                        <ButtonSelectItem
                             key={index}
                             type="button"
                             onClick={() => showCheckboxes(item)}
                         >
                             {item}
-                        </button>
+                        </ButtonSelectItem>
                     )
                     )
                     }
-                </div>
-            </DivList >
+                </DivlistItens>
 
         </DivButtonList >
     );

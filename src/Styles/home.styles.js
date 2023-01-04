@@ -145,6 +145,10 @@ export const DivSeparator = styled.div`
    padding: 5px;
 `;
 
+export const DivlistItens = styled.div`
+   display: inline;
+`;
+
 export const ButtonFavoritos = styled.button`
     display: flex;
     font-size: 16px;
@@ -308,6 +312,26 @@ export const ButtonReturn = styled.button`
     border: 1px solid white;
     border-radius: 10% 10% 30% 10%;
 
+    }
+`;
+
+export const ButtonSelectItem = styled.button`
+display: flex;
+    font-size:18px;
+    border: 0px solid white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    background: #2f803e;
+    justify-content: center;
+    color: black;
+    :hover{
+        //#2f803e
+        //#DDDBBB
+  cursor: pointe;
+    transform: scale(1.05);
+    border: 1px solid white;
+    
     }
 `;
 
