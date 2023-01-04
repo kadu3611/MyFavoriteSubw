@@ -1,7 +1,9 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
-import { ButtonCheck, DivButtonList, DivList, DivButton } from '../Styles/home.styles';
+import { ButtonCheck, DivButtonList, ButtonReturn,
+     DivButton, DivlistItens, ButtonSelectItem } from '../Styles/home.styles';
+import Return from '../Styles/imagens/return.svg'
 
 
 function GenericSelectTempero({ name, arrayGeneric, moment }) {
@@ -40,14 +42,14 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
     );
 
     function assitentFuncBack(newAntes, genricType) {
-        const trueApos = genricType?.filter((item) => Object.keys(item)[0] === name)
-        if (trueApos.length < 1) {
+        const trueAfter = genricType?.filter((item) => Object.keys(item)[0] === name)
+        if (trueAfter.length < 1) {
             const newGeneric = functionBack(name, generic)
             setGeneric(newGeneric)
             setSelectAllArray(arrayOrdenado)
         } else {
             arrayOrdenado.forEach(function (element) {
-                if (Object.values(trueApos[0])[0].indexOf(element) === -1)
+                if (Object.values(trueAfter[0])[0].indexOf(element) === -1)
                     newAntes.push(element);
             });
             setSelectAllArray(newAntes)
@@ -71,14 +73,12 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
         setSelectArray([])
     }
 
-    function showCheckboxes({ target }) {
-        const { value } = target;
+    function showCheckboxes(value) {
         const filterArray = selectAllArray?.filter((item) => item !== value);
         setSelectAllArray(filterArray);
         selectArray.push(value)
         setSelectArray(selectArray);
         showCheckboxesTrue(selectArray);
-
     }
 
     function showCheckboxesTrue(value) {
@@ -86,30 +86,39 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
     }
 
     const label = (
-        <div>
+        <DivButtonList>
             <ButtonCheck
                 type="button"
                 onClick={() => { setOptionButton(false) }}>
                 {`${name}`}:
             </ButtonCheck>
-            <DivList>
-                <select
-                    onClick={showCheckboxes}
-                >
+            <ButtonReturn
+                type="button"
+                onClick={() => { funcBack() }}
+
+            >
+                <img
+                    alt="tick icon"
+                    style={{ width: '15px' }}
+                    src={Return}
+                />
+            </ButtonReturn>
+
+                <DivlistItens>
                     {selectAllArray?.map((item, index) => (
-                        <option key={index} name={item}>{item} </option>
+                        <ButtonSelectItem
+                            key={index}
+                            type="button"
+                            onClick={() => showCheckboxes(item)}
+                        >
+                            {item}
+                        </ButtonSelectItem>
                     )
                     )
                     }
-                </select>
-            </DivList>
-            <button
-                type="button"
-                onClick={() => { funcBack() }}
-            >
-                retornar
-            </button>
-        </div>
+                </DivlistItens>
+
+        </DivButtonList >
     );
 
 
@@ -124,7 +133,6 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
                     {label}
                 </div>
                 : buttonOptionTrue
-
             }
         </DivButton>
     );

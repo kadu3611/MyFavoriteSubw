@@ -11,8 +11,8 @@ export default function ProviderComponents({ children }) {
   const [xbuttonRecheioAfter, setXbuttonRecheioAfter] = useState([]);
   const [xbuttonAcrescimosBefore, setXbuttonAcrescimosBefore] = useState([])
   const [xbuttonAcrescimosAfter, setXbuttonAcrescimosAfter] = useState([])
-  const [selectCheckboxSaladBefore, setSelectCheckboxaladBefore] = useState([]);
-  const [selectCheckboxSaladAfter, setSelectCheckboxaladAfter] = useState([]);
+  const [selectCheckboxSaladBefore, setSelectCheckboxSaladBefore] = useState([]);
+  const [selectCheckboxSaladAfter, setSelectCheckboxSaladAfter] = useState([]);
   const [selectCheckboxTemperoBefore, setSelectCheckboxTemperoBefore] = useState([]);
   const [selectCheckboxTemperoAfter, setSelectCheckboxTemperoAfter] = useState([]);
   const [selectCheckboxMolhosBefore, setSelectCheckboxMolhosBefore] = useState([]);
@@ -35,13 +35,13 @@ console.log(genericApos, "genericApos no Provider");
     genericApos,
     setGenericApos,
     xbuttonRecheioBefore, setXbuttonRecheioBefore,
-    selectCheckboxSaladBefore, setSelectCheckboxaladBefore,
+    selectCheckboxSaladBefore, setSelectCheckboxSaladBefore,
     selectCheckboxTemperoBefore, setSelectCheckboxTemperoBefore,
     selectCheckboxMolhosBefore, setSelectCheckboxMolhosBefore,
     xbuttonRecheioAfter, setXbuttonRecheioAfter,
     xbuttonAcrescimosBefore, setXbuttonAcrescimosBefore,
     xbuttonAcrescimosAfter, setXbuttonAcrescimosAfter,
-    selectCheckboxSaladAfter, setSelectCheckboxaladAfter,
+    selectCheckboxSaladAfter, setSelectCheckboxSaladAfter,
     selectCheckboxTemperoAfter, setSelectCheckboxTemperoAfter,
     selectCheckboxMolhosAfter, setSelectCheckboxMolhosAfter,
     nameContext, setNameContext,
@@ -56,13 +56,13 @@ console.log(genericApos, "genericApos no Provider");
     genericApos,
     setGenericApos,
     xbuttonRecheioBefore, setXbuttonRecheioBefore,
-    selectCheckboxSaladBefore, setSelectCheckboxaladBefore,
+    selectCheckboxSaladBefore, setSelectCheckboxSaladBefore,
     selectCheckboxTemperoBefore, setSelectCheckboxTemperoBefore,
     selectCheckboxMolhosBefore, setSelectCheckboxMolhosBefore,
     xbuttonRecheioAfter, setXbuttonRecheioAfter,
     xbuttonAcrescimosBefore, setXbuttonAcrescimosBefore,
     xbuttonAcrescimosAfter, setXbuttonAcrescimosAfter,
-    selectCheckboxSaladAfter, setSelectCheckboxaladAfter,
+    selectCheckboxSaladAfter, setSelectCheckboxSaladAfter,
     selectCheckboxTemperoAfter, setSelectCheckboxTemperoAfter,
     selectCheckboxMolhosAfter, setSelectCheckboxMolhosAfter,
     nameContext, setNameContext,

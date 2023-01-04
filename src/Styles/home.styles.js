@@ -63,9 +63,8 @@ export const DivButton = styled.div`
 
 export const DivButtonList = styled.div`
     display: inline;
-    align-items: flex-start;
-    font-size: 16px;
     padding: 2px;
+    padding-bottom: 0px;
 
 `;
 
@@ -146,7 +145,8 @@ export const DivSeparator = styled.div`
 `;
 
 export const DivlistItens = styled.div`
-   display: inline;
+display: block;
+padding-top: 5px;
 `;
 
 export const ButtonFavoritos = styled.button`
@@ -266,10 +266,8 @@ export const ButtonCheck = styled.button`
     border-width: 0px;
     :hover{
         background-color: white;
-
         border-color: white;
-        //#2f803e
-        //#DDDBBB
+
   cursor: pointe;
     transform: scale(1.05);
     }
@@ -284,8 +282,6 @@ font-size:16px;
     justify-content: center;
     color: #ffc53d;
     :hover{
-        //#2f803e
-        //#DDDBBB
   cursor: pointe;
     transform: scale(1.05);
     border: 1px solid white;
@@ -326,8 +322,6 @@ display: flex;
     justify-content: center;
     color: black;
     :hover{
-        //#2f803e
-        //#DDDBBB
   cursor: pointe;
     transform: scale(1.05);
     border: 1px solid white;

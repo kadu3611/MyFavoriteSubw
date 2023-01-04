@@ -12,19 +12,18 @@ import Return from '../Styles/imagens/return.svg'
 function GenericSelectSalad({ name, arrayGeneric, moment }) {
     const { genericAntes,
         setGenericAntes,
-        selectCheckboxSaladBefore, setSelectCheckboxaladBefore,
-        genericApos, setGenericApos, selectArray, setSelectArray,
+        selectCheckboxSaladBefore, setSelectCheckboxSaladBefore,
+        genericApos, setGenericApos
     } = useContext(ContextComponents);
 
     const arrayOrdenado = arrayGeneric.sort()
 
     const [optionButton, setOptionButton] = useState(false);
+    const [selectArray, setSelectArray] = useState([]);
+
 
     const selectAllArray = selectCheckboxSaladBefore
-    const setSelectAllArray = setSelectCheckboxaladBefore
-
-    const newListSelect = selectArray
-    const setNewListSelect = setSelectArray
+    const setSelectAllArray = setSelectCheckboxSaladBefore
 
     const generic = moment === 'Antes do Forno' ? genericAntes : genericApos
     const setGeneric = moment === 'Antes do Forno' ? setGenericAntes : setGenericApos
@@ -74,8 +73,7 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
         }
         const newGeneric = functionBack(name, generic)
         setGeneric(newGeneric)
-        setNewListSelect([])
-        setSelectAllArray(arrayOrdenado)
+        setSelectArray([])
     }
 
     const showCheckboxesTrue = (value) => {
@@ -83,11 +81,11 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
     }
 
     const showCheckboxes = (value) => {
-        const newSelectArray = [...newListSelect, value]
-        const arrayItens = selectAllArray?.filter(salad => !newSelectArray?.includes(salad));
-        setSelectAllArray(arrayItens);
-        setNewListSelect(newSelectArray);
-        showCheckboxesTrue(newSelectArray);
+        const filterArray = selectAllArray?.filter((item) => item !== value);
+        setSelectAllArray(filterArray);
+        selectArray.push(value)
+        setSelectArray(selectArray);
+        showCheckboxesTrue(selectArray);
     }
 
 

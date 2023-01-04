@@ -1,7 +1,9 @@
 import React, { useState, useContext, useCallback, useEffect, memo } from 'react';
 import ContextComponents from '../context/ContextComponents';
+import Return from '../Styles/imagens/return.svg'
 import { func, actualSetList, functionBack } from '../Fuctions/functions';
-import { ButtonCheck, DivButtonList, DivList } from '../Styles/home.styles';
+import { DivButton, DivButtonList, ButtonCheck,
+     ButtonReturn, DivlistItens, ButtonSelectItem } from '../Styles/home.styles';
 
 
 function GenericSelectMolhos({ name, arrayGeneric, moment }) {
@@ -25,34 +27,34 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
 
 
     const initial = useCallback(() => {
-        // setGenericAntes((back) => [...back, { [name]: [] }])
-
         setSelectAllArray(arrayOrdenado)
 
     }, [setSelectAllArray, arrayOrdenado])
 
     const buttonOptionTrue = (
-        <ButtonCheck
-            type="button"
-            onClick={() => func(setOptionButton)}
-        >
-            {`${name} >`}
-        </ButtonCheck>
+        <DivButtonList>
+            <ButtonCheck
+                type="button"
+                onClick={() => func(setOptionButton)}
+            >
+                {`${name} >`}
+            </ButtonCheck>
+        </DivButtonList>
     );
 
-    function assitentFuncBack(newAntes, genricType){
-        const trueApos = genricType?.filter((item) => Object.keys(item)[0] === name)
-                if (trueApos.length < 1) {
-                const newGeneric = functionBack(name, generic)
-                setGeneric(newGeneric)
-                    setSelectAllArray(arrayOrdenado)
-                } else {
-                    arrayOrdenado.forEach(function (element) {
-                        if (Object.values(trueApos[0])[0].indexOf(element) === -1)
-                            newAntes.push(element);
-                    });
-                    setSelectAllArray(newAntes)
-                }
+    function assitentFuncBack(newAntes, genricType) {
+        const trueAfter = genricType?.filter((item) => Object.keys(item)[0] === name)
+        if (trueAfter.length < 1) {
+            const newGeneric = functionBack(name, generic)
+            setGeneric(newGeneric)
+            setSelectAllArray(arrayOrdenado)
+        } else {
+            arrayOrdenado.forEach(function (element) {
+                if (Object.values(trueAfter[0])[0].indexOf(element) === -1)
+                    newAntes.push(element);
+            });
+            setSelectAllArray(newAntes)
+        }
     }
 
     function funcBack() {
@@ -62,24 +64,22 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
         if (generic.length !== 0) {
             if (moment === 'Antes do Forno') {
                 assitentFuncBack(newAntes, genericApos)
-            } else{
+            } else {
                 assitentFuncBack(newApos, genericAntes)
 
             }
         }
-       const newGeneric = functionBack(name, generic)
+        const newGeneric = functionBack(name, generic)
         setGeneric(newGeneric)
         setSelectArray([])
     }
 
-    function showCheckboxes({ target }) {
-        const { value } = target;
+    function showCheckboxes(value) {
         const filterArray = selectAllArray?.filter((item) => item !== value);
         setSelectAllArray(filterArray);
         selectArray.push(value)
         setSelectArray(selectArray);
         showCheckboxesTrue(selectArray);
-
     }
 
     function showCheckboxesTrue(value) {
@@ -87,30 +87,39 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
     }
 
     const label = (
-        <div>
+        <DivButtonList>
             <ButtonCheck
                 type="button"
                 onClick={() => { setOptionButton(false) }}>
                 {`${name}`}:
             </ButtonCheck>
-            <DivList>
-            <select
-                onClick={showCheckboxes}
-            >
-                {selectAllArray?.map((item, index) => (
-                    <option key={index} name={item}>{item} </option>
-                )
-                )
-                }
-            </select>
-            </DivList>
-            <button
+            <ButtonReturn
                 type="button"
                 onClick={() => { funcBack() }}
+
             >
-                retornar
-            </button>
-        </div>
+                <img
+                    alt="tick icon"
+                    style={{ width: '15px' }}
+                    src={Return}
+                />
+            </ButtonReturn>
+
+                <DivlistItens>
+                    {selectAllArray?.map((item, index) => (
+                        <ButtonSelectItem
+                            key={index}
+                            type="button"
+                            onClick={() => showCheckboxes(item)}
+                        >
+                            {item}
+                        </ButtonSelectItem>
+                    )
+                    )
+                    }
+                </DivlistItens>
+
+        </DivButtonList >
     );
 
 
@@ -118,16 +127,15 @@ function GenericSelectMolhos({ name, arrayGeneric, moment }) {
         initial()
     }, [initial])
     return (
-        <DivButtonList>
+        <DivButton>
             {selectAllArray.length !== 0 &&
                 optionButton ?
                 <div>
                     {label}
                 </div>
                 : buttonOptionTrue
-
             }
-        </DivButtonList>
+        </DivButton>
     );
 }
 
