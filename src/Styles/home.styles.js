@@ -6,13 +6,18 @@ export const DotWrapper = styled.div`
 
     :root {
         width: 100%;
+        background-color: #5a346c;
 
       @media (min-width: 768px) {
         width: 100%;
+    background-color: #5a346c;
+
       }
 
       @media (min-width: 1024px) {
         width: 90%;
+    background-color: #5a346c;
+
       }
     }
     
@@ -51,52 +56,46 @@ export const DivCard = styled.div`
     padding-top: 10px;
     padding-left: 5%;
     border-radius: 10% 10% 30% 10%;
-    @media (max-width: 400px) {
-        display: flex;
-        width: 95%;
+    width: 95%;
     left: 0%;
+    @media (min-width: 1024px) {
+        display: flex;
+        
       }  
 
 `;
 
 export const DivCardItens = styled.div`
-    display: flex;
     font-size: 20px;
-    @media (max-width: 400px) {
-        display: block;
-        width: 95%;
+    display: block;
+    width: 95%;
+    @media (max-width: 1024) {
+    display: flex;
       }  
 
 `;
 
 export const DivCardTitle = styled.div`
-    display: flex;
-    font-size: 20px;
-    border-radius: 30px 30px 50px 30px;
-    background-color: #ffc53d;
-    border-color: #ffc53d;
-
-    @media (max-width: 400px) {
-    font-size: 20px;
+font-size: 20px;
     padding-top: 2px;
     border-radius: 30px 30px 50px 30px;
     background-color: #ffc53d;
     border-color: #ffc53d;
     border-width: 0px;
     justify-content: center;
+    display: flex;
+
+    @media (min-width: 1024) {
+    display: flex;
+    font-size: 20px;
+    border-radius: 30px 30px 50px 30px;
+    background-color: #ffc53d;
+    border-color: #ffc53d;
       }  
 
 `;
 
 export const DivCardNames = styled.div`
-    display: flex;
-    font-size: 20px;
-    border-radius: 30px 30px 50px 30px;
-    background-color: #2f803e;
-    border-color: #2f803e;
-    color: white;
-
-    @media (max-width: 400px) {
     display:inline;
     font-size: 20px;
     padding: 3px;
@@ -106,26 +105,31 @@ export const DivCardNames = styled.div`
     border-color: #2f803e;
     color: white;
     border-width: 0px;
+    @media (max-width: 400px) {
+    display: inline;
+    padding: 3px;
+    padding-right: 10px;
+    border-radius: 30px 30px 50px 30px;
       }  
 
 `;
 
 export const DivCardTopics = styled.div`
-    display: flex;
+    display: inline;
     font-size: 20px;
     border-radius: 30px 30px 50px 30px;
     background-color: #5a346c;
-    border-color: #5a346c;
+    border-color: white;
     color: white;
+    left: 3%;
+    position: relative;
 
-    @media (max-width: 400px) {
-    display:inline;
+    @media (min-width: 400px) {
     font-size: 20px;
     padding: 3px;
     padding-right: 10px;
     border-radius: 50px 50px 70px 10px;
-    background-color: #5a346c;
-    border-color: #5a346c;
+    border-color: white;
     color: white;
     border-width: 0px;
       }  
@@ -137,22 +141,21 @@ export const DivOption = styled.div`
     border-radius: 10% 10% 60% 10%;
     display: block;
     font-size: 20px;
-    justify-items: columns;
-    justify-content: space-evenly;
     padding: 15px;
     padding-top: 5px;
     background-color: #2f803e;
-
-    @media (max-width: 400px) {
+    @media (min-width: 400px) {
   width: 90%;
 }
 
 @media (min-width: 768px) {
-  width: 80%;
+  width: 90%;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   width: 80%;
+  justify-items: columns;
+    justify-content: space-evenly;
 }
 `;
 
@@ -175,9 +178,20 @@ export const DivList = styled.div`
     padding-left: 5px;
 `;
 
+export const DivFavoritList = styled.div`
+    display:flex;
+    padding: 50px;
+
+`;
+
 export const DivSelect = styled.div`
     display: flex;
     padding-left: 10px;
+    
+    @media (max-width: 400px) {
+        display: block;
+        width:90%;  
+}
 `;
 
 export const DivCaption = styled.div`
@@ -193,8 +207,11 @@ export const DivItens = styled.div`
 
     @media (max-width: 400px) {
         display: block;
-        width:80%;
+        width:90%;
         padding: 1px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
 }
 `;
 
@@ -247,6 +264,12 @@ export const DivTitle = styled.div`
     padding-bottom: 20px;
     justify-content: center;
     font-size: 50px;
+    @media (max-width: 400px) {
+        font-size: 35px;
+      } 
+      @media (max-width: 768px) {
+        font-size: 35px;
+      }  
 `;
 
 export const DivSeparator = styled.div`
@@ -283,10 +306,12 @@ export const ButtonFavoritos = styled.button`
 `;
 
 export const LabelCenter = styled.label`
+display: block;
     font-size: 20px;
     justify-content: left;
     padding: 2px;
     color: white;
+     
 `;
 
 export const LabelRight = styled.label`
@@ -387,17 +412,22 @@ export const ButtonCheck = styled.button`
 export const ButtonSelect = styled.button`
 font-size:16px;
     border: 0px solid;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 3px;
+    padding-right: 5px;
     background: #2f803e;
     justify-content: center;
+    align-items: center;
     color: #ffc53d;
     :hover{
   cursor: pointe;
     transform: scale(1.05);
     border: 1px solid white;
-    
+
     }
+    @media (max-width: 400px) {
+    padding-left: 3px;
+    padding-right: 3px;
+      }  
 `;
 
 export const ButtonReturn = styled.button`
@@ -410,8 +440,6 @@ export const ButtonReturn = styled.button`
     border-radius: 10% 10% 30% 10%;
     left: 6px;
     position: relative;
-
-
     :hover{
         //#2f803e
         //#DDDBBB
@@ -440,11 +468,44 @@ display: flex;
     }
 `;
 
+export const ButtonClose = styled.button`
+    font-size:16px;
+    border: 0px solid;
+    padding: 5px;
+    background: #2f803e;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 10% 5% 30% 10%;
+    border-color: black;
+    position: relative;
+    left: 10%;
+    :hover{
+  cursor: pointe;
+    transform: scale(1.05);
+    border: 1px solid white;
+
+    }
+    @media (max-width: 400px) {
+    padding-left: 3px;
+    padding-right: 3px;
+    position: relative;
+    left: 0%;
+      }  
+`;
+
 
 export const SelectName = styled.select`
     font-size: 16px;
     justify-content: left;
     padding: 2px;
+    border: 0px;
+    :hover{
+  cursor: pointe;
+    transform: scale(1.05);
+    border: 1px solid white;
+    
+    }
 `;
 
 export const SelectList = styled.select`
@@ -463,6 +524,7 @@ export const InputFavorite = styled.input`
     font-size: 14px;
     justify-content: left;
     padding: 2px;
+    border: 0px solid white;
 `;
 
 export const InputCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -472,8 +534,7 @@ overflow: hidden;
    height: 1px;
    margin: -1px;
    padding: 2px;
-  
-     
+      
 `;
 
 export const FormWrapper = styled.form`
@@ -484,5 +545,9 @@ export const FormWrapper = styled.form`
     @media (max-width: 400px) {
         width: 100%;
       }  
+      @media (max-width: 768px) {
+        width: 100%;
+      }  
+
 
 `;

@@ -6,7 +6,7 @@ import CardItem from './CardItens';
 import {
   DivFavoritos, DivFavoritosOrganizer,
   ButtonFavoritos, DivFavoritosButtom,
-  DivFavoritoStyle, InputFavorite
+  DivFavoritoStyle, InputFavorite, ButtonClose, DivFavoritList
 } from '../Styles/home.styles'
 
 
@@ -57,12 +57,12 @@ function Favorites() {
           before={before}
           after={after}
         />
-        <button
+        <ButtonClose
           type="button"
           onClick={() => closeCard()}
         >
           Fechar
-        </button>
+        </ButtonClose>
       </div>
     )
 

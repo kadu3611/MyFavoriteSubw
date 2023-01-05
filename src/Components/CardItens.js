@@ -75,27 +75,37 @@ function CardItem({ name, bread, before, after }) {
           <DivCardMyFavorite>
             Meu lanche favorito !
           </DivCardMyFavorite>
-          <DivCardNames>
-            Nome: 
-          </DivCardNames>
-          {name}
-           {bread.length !== 0 &&
-           <DivItens>
+          <DivItens>
             <DivCardNames>
-              Sabor do Pão:
+              Nome:
             </DivCardNames>
-              {bread}
-              </DivItens>
-            }
-          
+            <div>
+              {name}
+            </div>
+          </DivItens>
+          {bread.length !== 0 &&
+            <DivItens>
+              <DivCardNames>
+                Sabor do Pão:
+              </DivCardNames>
+              <div>
+                {bread}
+              </div>
+            </DivItens>
+          }
+
           <DivItensCaptions>
-            <DivCardTopics>Antes do Forno:</DivCardTopics>
+            <DivCardTopics>
+              Antes do Forno:
+            </DivCardTopics>
             {
               reproductArrays(before)
             }
           </DivItensCaptions>
           <DivItensCaptions>
-            Depois do Forno:
+            <DivCardTopics>
+              Depois do Forno:
+            </DivCardTopics>
             {
               reproductArrays(after)
             }
