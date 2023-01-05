@@ -496,16 +496,20 @@ export const ButtonClose = styled.button`
 
 
 export const SelectName = styled.select`
+    border-radius: 10px;
+    border: none;
+    text-transform: capitalize;
+    color: black;
+    background: white;
+    text-align: left;
     font-size: 16px;
-    justify-content: left;
-    padding: 2px;
-    border: 0px;
-    :hover{
-  cursor: pointe;
-    transform: scale(1.05);
-    border: 1px solid white;
-    
-    }
+    cursor: pointer;
+    text-align: center;
+    :active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 `;
 
 export const SelectList = styled.select`
@@ -518,6 +522,8 @@ export const InputName = styled.input`
     font-size: 16px;
     justify-content: left;
     padding: 2px;
+    border-radius: 10px;
+
 `;
 
 export const InputFavorite = styled.input`

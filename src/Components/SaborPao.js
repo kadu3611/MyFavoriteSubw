@@ -14,8 +14,10 @@ function SaborPao() {
   };
 
   const select = (
+    <div>
     <LabelRight>
       Sabor do Pão:
+    </LabelRight>
       <SelectName
         name="saborPao"
         onClick={showCheckboxes}
@@ -27,7 +29,7 @@ function SaborPao() {
           )
         }
       </SelectName>
-    </LabelRight>
+      </div>
 
   );
   return (

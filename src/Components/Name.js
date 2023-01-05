@@ -19,7 +19,7 @@ function nameIs({target}){
           type="text"
           name="name"
           onChange={nameIs}
-          placeholder="Favoritar Nome"
+          placeholder="Nome Favorito"
         />
         </LabelCenter>
     )
