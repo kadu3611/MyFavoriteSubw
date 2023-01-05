@@ -127,8 +127,7 @@ function GenericSelectTempero({ name, arrayGeneric, moment }) {
     }, [initial])
     return (
         <DivButton>
-            {selectAllArray.length !== 0 &&
-                optionButton ?
+            {optionButton ?
                 <div>
                     {label}
                 </div>

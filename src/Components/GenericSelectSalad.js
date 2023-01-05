@@ -131,8 +131,7 @@ function GenericSelectSalad({ name, arrayGeneric, moment }) {
 
     return (
         <DivButton>
-            {selectAllArray.length !== 0 &&
-                optionButton ?
+            { optionButton ?
                 label
                 : buttonOptionTrue
 
