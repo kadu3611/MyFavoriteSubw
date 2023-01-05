@@ -26,7 +26,6 @@ function Favorites() {
     const data = await getDocs(userCollectionRef);
     setAllFavorites(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     setSearch(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-    console.log(1);
   }
 
   const buttonMap = (

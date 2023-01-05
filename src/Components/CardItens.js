@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import {
-  DivCard, DivCenterCard, DivItens, DivItensBefore, DivItensAfter, DivAjuste
+  DivCard, DivCenterCard, DivItens, DivItensCaptions,
+  DivCardItens, DivCardTitle, DivCardMyFavorite,
+  DivCardTopics, DivCardNames
 } from '../Styles/home.styles'
 
 
@@ -12,11 +14,11 @@ function CardItem({ name, bread, before, after }) {
     return (
 
       <DivItens key={`${Object.keys(item)}${length}`}>
-        <DivItens key={`${Object.keys(item)}${length}`}>
+        <DivCardTitle key={`${Object.keys(item)}${length}`}>
           {
             `${Object.keys(item)}:`
           }
-        </DivItens>
+        </DivCardTitle>
         {
           ruleArray.map((object, inject) => (
             <DivItens key={`${inject}`}>
@@ -40,11 +42,11 @@ function CardItem({ name, bread, before, after }) {
         || Object.keys(item)[0] === 'Molhos') {
         return (
           <DivItens key={`${Object.keys(item)[0]}${length}`}>
-            <DivItens key={`${Object.keys(item)}${length}`}>
+            <DivCardTitle key={`${Object.keys(item)}${length}`}>
               {
                 `${Object.keys(item)[0]}:`
               }
-            </DivItens>
+            </DivCardTitle>
             {
               Object.values(item)?.map((elemento) => (
                 elemento.map((object, inject) => (
@@ -69,26 +71,37 @@ function CardItem({ name, bread, before, after }) {
   return (
     <DivCenterCard>
       <DivCard>
-      <DivItens>
-          <DivItens> Meu lanche favorito !</DivItens>
-          <DivItens> Nome: {name}</DivItens>
-          <DivItens> {bread.length !== 0 &&
-            `Sabor do Pão: ${bread}`}
-          </DivItens>
-        <DivItensBefore>
-            Antes do Forno:
+        <DivCardItens>
+          <DivCardMyFavorite>
+            Meu lanche favorito !
+          </DivCardMyFavorite>
+          <DivCardNames>
+            Nome: 
+          </DivCardNames>
+          {name}
+           {bread.length !== 0 &&
+           <DivItens>
+            <DivCardNames>
+              Sabor do Pão:
+            </DivCardNames>
+              {bread}
+              </DivItens>
+            }
+          
+          <DivItensCaptions>
+            <DivCardTopics>Antes do Forno:</DivCardTopics>
             {
               reproductArrays(before)
             }
-        </DivItensBefore>
-        <DivItensAfter>
-          Depois do Forno:
-        {
-          reproductArrays(after)
-        }
-      </DivItensAfter>
-      </DivItens>
-    </DivCard>
+          </DivItensCaptions>
+          <DivItensCaptions>
+            Depois do Forno:
+            {
+              reproductArrays(after)
+            }
+          </DivItensCaptions>
+        </DivCardItens>
+      </DivCard>
     </DivCenterCard >
   );
 }
