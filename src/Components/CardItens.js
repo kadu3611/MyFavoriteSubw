@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import {
   DivCard, DivCenterCard, DivItens, DivItensCaptions,
   DivCardItens, DivCardTitle, DivCardMyFavorite,
-  DivCardTopics, DivCardNames
+  DivCardTopics, DivCardNames, DivInputCardTopics
 } from '../Styles/home.styles'
 
 
@@ -79,18 +79,18 @@ function CardItem({ name, bread, before, after }) {
             <DivCardNames>
               Nome:
             </DivCardNames>
-            <div>
+            <DivInputCardTopics>
               {name}
-            </div>
+            </DivInputCardTopics>
           </DivItens>
           {bread.length !== 0 &&
             <DivItens>
               <DivCardNames>
                 Sabor do Pão:
               </DivCardNames>
-              <div>
+              <DivInputCardTopics>
                 {bread}
-              </div>
+              </DivInputCardTopics>
             </DivItens>
           }
 

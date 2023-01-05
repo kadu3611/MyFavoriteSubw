@@ -51,7 +51,6 @@ export const DivCenterCard = styled.div`
 
 export const DivCard = styled.div`
     display: flex;
-    font-size: 20px;
     background-color: white;
     padding-top: 10px;
     padding-left: 5%;
@@ -66,7 +65,7 @@ export const DivCard = styled.div`
 `;
 
 export const DivCardItens = styled.div`
-    font-size: 20px;
+    font-size: 14px;
     display: block;
     width: 95%;
     @media (max-width: 1024) {
@@ -76,7 +75,7 @@ export const DivCardItens = styled.div`
 `;
 
 export const DivCardTitle = styled.div`
-font-size: 20px;
+font-size: 14px;
     padding-top: 2px;
     border-radius: 30px 30px 50px 30px;
     background-color: #ffc53d;
@@ -97,7 +96,7 @@ font-size: 20px;
 
 export const DivCardNames = styled.div`
     display:inline;
-    font-size: 20px;
+    font-size: 14px;
     padding: 3px;
     padding-right: 10px;
     border-radius: 50px 50px 70px 10px;
@@ -116,10 +115,10 @@ export const DivCardNames = styled.div`
 
 export const DivCardTopics = styled.div`
     display: inline;
-    font-size: 20px;
+    font-size: 14px;
     border-radius: 30px 30px 50px 30px;
     background-color: #5a346c;
-    border-color: white;
+    border: 1px solid white;
     color: white;
     left: 3%;
     position: relative;
@@ -129,9 +128,8 @@ export const DivCardTopics = styled.div`
     padding: 3px;
     padding-right: 10px;
     border-radius: 50px 50px 70px 10px;
-    border-color: white;
+    border: 1px solid white;
     color: white;
-    border-width: 0px;
       }  
 
 `;
@@ -163,18 +161,18 @@ export const DivButton = styled.div`
     display: block;
     font-size: 16px;
     padding: 2px;
-
+padding-bottom: 0px;
 `;
 
 export const DivButtonList = styled.div`
     display: inline;
     padding: 2px;
     padding-bottom: 0px;
+    margin-bottom: 0px;
 
 `;
 
 export const DivList = styled.div`
-    font-size: 16px;
     padding-left: 5px;
 `;
 
@@ -191,6 +189,7 @@ export const DivSelect = styled.div`
     @media (max-width: 400px) {
         display: block;
         width:90%;  
+
 }
 `;
 
@@ -204,20 +203,38 @@ export const DivItens = styled.div`
     padding-right: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
+    font-size:16px;
 
     @media (max-width: 400px) {
         display: block;
         width:90%;
         padding: 1px;
         padding-right: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 1px;
         padding-left: 10px;
+        font-size:12px;
+
 }
 `;
 
 export const DivCardMyFavorite = styled.div`
     text-align: center;
+    font-size: 18px;
+    @media (max-width: 400px) {
+        font-size: 14px;
+      } 
+
     
+`;
+
+export const DivInputCardTopics = styled.div`
+padding-top: 3px;
+padding-bottom: 3px;
+
+    @media (max-width: 400px) {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
 `;
 
 export const DivItensCaptions = styled.div`
@@ -278,7 +295,16 @@ export const DivSeparator = styled.div`
 
 export const DivlistItens = styled.div`
 display: block;
-padding-top: 5px;
+padding-top: 2px;
+@media (max-width: 400px) {
+        padding-bottom: 0px;
+        padding-top: 0px;
+
+
+
+      } 
+    
+
 `;
 
 export const ButtonFavoritos = styled.button`
@@ -333,6 +359,11 @@ export const LabelListItens = styled.label`
         color: white;
     transform: scale(1.05);
     }
+    @media (max-width: 400px) {
+        font-size: 14px;
+
+      } 
+    
     
 `;
 
@@ -353,6 +384,11 @@ export const LabelCheckbox = styled.label`
     transform: scale(1.05);
     padding-left: 18px;
     }
+
+    @media (max-width: 400px) {
+        font-size: 12px;
+
+      } 
 
 `;
 
@@ -466,6 +502,10 @@ display: flex;
     border: 1px solid white;
     
     }
+    @media (max-width: 400px) {
+        font-size: 14px;
+
+      } 
 `;
 
 export const ButtonClose = styled.button`
@@ -529,8 +569,13 @@ export const InputName = styled.input`
 export const InputFavorite = styled.input`
     font-size: 14px;
     justify-content: left;
-    padding: 2px;
+    padding: 10px;
     border: 0px solid white;
+    @media (max-width: 400px) {
+        padding: 5px;
+
+      }  
+    
 `;
 
 export const InputCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -547,6 +592,19 @@ export const FormWrapper = styled.form`
     justify-content: space-evenly;
     padding-bottom: 10px;
     width:60%;
+
+    @media (max-width: 400px) {
+        width: 100%;
+      }  
+      @media (max-width: 768px) {
+        width: 100%;
+      }  
+
+
+`;
+
+export const ParagraphCard = styled.p`
+    font-size:10px;
 
     @media (max-width: 400px) {
         width: 100%;
