@@ -11,8 +11,8 @@ export const FadeIn = styled(BaseAnimation)`
 `;
 
 export const DotWrapper = styled.div`
+display:inline;
     background-color: #5a346c;
-
     :root {
         width: 100%;
         background-color: #5a346c;
@@ -33,16 +33,26 @@ export const DotWrapper = styled.div`
 `;
 
 export const DivCenterBorderBlack = styled.div`
-    display: flex;
+    display: block;
+    background-color: #5a346c;
+    width:100%;
+    @media (min-width: 400px) {
+        display: flex;
+        width: 100%;
     justify-content: space-around;
+    padding-bottom: 30px;
     align-items: center;
     background-color: #5a346c;
-    padding-bottom: 30px;
-    width:100%
+
+
+
+      }  
+
 
 `;
 
 export const DivCenterCard = styled.div`
+
     justify-content: left;
     align-items: left;
     background-color: #5a346c;
@@ -50,7 +60,7 @@ export const DivCenterCard = styled.div`
     left: 10%;
     top: 10%;
     width: 80%;
-    @media (max-width: 400px) {
+    @media (max-width: 420px) {
         display: inline;
         width: 100%;
     left: 0%;
@@ -113,6 +123,8 @@ export const DivCardNames = styled.div`
     padding-right: 10px;
     border-radius: 30px 30px 50px 30px;
     font-size: 14px;
+    background-color: #2f803e;
+    border-color: #2f803e;
 
       }  
 
@@ -128,33 +140,41 @@ export const DivCardTopics = styled.div`
     left: 3%;
     position: relative;
 
-    @media (min-width: 400px) {
+    @media (min-width: 420px) {
     font-size: 18px;
     padding: 3px;
     padding-right: 10px;
     border-radius: 50px 50px 70px 10px;
-    border: 1px solid white;
-    color: white;
       }  
 
 `;
 
 export const DivOption = styled.div`
-    border-radius: 10% 10% 60% 10%;
-    display: block;
+    border-radius: 3% 7% 50% 10%;
     font-size: 20px;
+    width: 90%;
     padding: 15px;
     padding-top: 5px;
+    padding-right: 5px;
+    background-color: #2f803e;
+    padding-bottom: 60px;
+      
+    @media (max-width: 420px) {
+      
+    width: 90%;
+    padding: 15px;
+    padding-top: 5px;
+    padding-right: 5px;
+    background-color: #2f803e;
     padding-bottom: 60px;
 
-    background-color: #2f803e;
-    @media (min-width: 400px) {
+}
+@media (max-width: 420px) {
   width: 90%;
+  display: block;
+
 }
 
-@media (min-width: 768px) {
-  width: 90%;
-}
 
 @media (max-width: 1024px) {
   width: 80%;
@@ -203,6 +223,10 @@ export const DivCaption = styled.div`
     font-size: 24px;
     padding: 4px;
     color: white;
+    @media (min-width: 400px) {
+      padding: 4px;
+    }
+
 `;
 
 export const DivItens = styled.div`
@@ -218,8 +242,6 @@ export const DivItens = styled.div`
     padding-bottom: 4px;
     padding-left: 10px;
     font-size:17px;
-
-
 }
 `;
 
@@ -313,11 +335,18 @@ padding-top: 2px;
 
 export const DivBefore = styled.div`
 ${props => console.log(props)};
-display:${props => props.value ? "none" : "block"};
+display:${props => props.value ? "none" : "inline"};
+@media (max-width: 420px) {
+  display:${props => props.value ? "none" : "block"};
+
+      } 
 `;
 
 export const DivAfter = styled.div`
-display:${props => props.value ? "block" : "none"};
+display:${props => props.value ? "inline" : "none"};
+@media (max-width: 420px) {
+  display:${props => props.value ? "block" : "none"};
+      } 
 `;
 
 

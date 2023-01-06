@@ -75,7 +75,7 @@ function Favorites() {
   }, [allFavorites, setSearch])
 
   useEffect(() => {
-    // getUsers()
+    getUsers()
   }, [])
 
   useEffect(() => {
