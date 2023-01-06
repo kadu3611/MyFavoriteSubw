@@ -656,7 +656,6 @@ overflow: hidden;
 
 export const FormWrapper = styled.form`
 display:block;
-    justify-content: center;
     padding-bottom: 10px;
     width:40%;
 

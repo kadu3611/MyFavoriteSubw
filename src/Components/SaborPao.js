@@ -20,7 +20,7 @@ function SaborPao() {
     </LabelRight>
       <SelectName
         name="saborPao"
-        onClick={showCheckboxes}
+        onChange={showCheckboxes}
       >
         {
           arraySaborPao.map((item, index) => (
