@@ -1,5 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import BaseAnimation from './BaseAnimation';
 
+
+const FadeInAnimation = keyframes`  
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+export const FadeIn = styled(BaseAnimation)`
+  animation-name: ${FadeInAnimation};
+`;
 
 export const DotWrapper = styled.div`
     background-color: #5a346c;
@@ -30,6 +39,7 @@ export const DivCenterBorderBlack = styled.div`
     background-color: #5a346c;
     padding-bottom: 30px;
     width:100%
+
 `;
 
 export const DivCenterCard = styled.div`
@@ -53,24 +63,20 @@ export const DivCard = styled.div`
     display: flex;
     background-color: white;
     padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 5%;
     border-radius: 10% 10% 30% 10%;
     width: 95%;
     left: 0%;
     @media (min-width: 1024px) {
-        display: flex;
         
       }  
 
 `;
 
 export const DivCardItens = styled.div`
-    font-size: 14px;
-    display: block;
+    display: inline;
     width: 95%;
-    @media (max-width: 1024) {
-    display: flex;
-      }  
 
 `;
 
@@ -84,19 +90,16 @@ font-size: 14px;
     justify-content: center;
     display: flex;
 
-    @media (min-width: 1024) {
-    display: flex;
+    @media (min-width: 1024px) {
     font-size: 20px;
-    border-radius: 30px 30px 50px 30px;
-    background-color: #ffc53d;
-    border-color: #ffc53d;
+
       }  
 
 `;
 
 export const DivCardNames = styled.div`
     display:inline;
-    font-size: 14px;
+    font-size: 18px;
     padding: 3px;
     padding-right: 10px;
     border-radius: 50px 50px 70px 10px;
@@ -109,6 +112,8 @@ export const DivCardNames = styled.div`
     padding: 3px;
     padding-right: 10px;
     border-radius: 30px 30px 50px 30px;
+    font-size: 14px;
+
       }  
 
 `;
@@ -124,7 +129,7 @@ export const DivCardTopics = styled.div`
     position: relative;
 
     @media (min-width: 400px) {
-    font-size: 20px;
+    font-size: 18px;
     padding: 3px;
     padding-right: 10px;
     border-radius: 50px 50px 70px 10px;
@@ -134,13 +139,14 @@ export const DivCardTopics = styled.div`
 
 `;
 
-
 export const DivOption = styled.div`
     border-radius: 10% 10% 60% 10%;
     display: block;
     font-size: 20px;
     padding: 15px;
     padding-top: 5px;
+    padding-bottom: 60px;
+
     background-color: #2f803e;
     @media (min-width: 400px) {
   width: 90%;
@@ -200,26 +206,26 @@ export const DivCaption = styled.div`
 `;
 
 export const DivItens = styled.div`
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    font-size:16px;
-
-    @media (max-width: 400px) {
-        display: block;
+    display: block;
         width:90%;
         padding: 1px;
         padding-right: 10px;
         padding-bottom: 1px;
         padding-left: 10px;
-        font-size:12px;
+        font-size:13px;
+
+    @media (min-width: 400px) {
+    padding-bottom: 4px;
+    padding-left: 10px;
+    font-size:17px;
+
 
 }
 `;
 
 export const DivCardMyFavorite = styled.div`
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     @media (max-width: 400px) {
         font-size: 14px;
       } 
@@ -239,12 +245,15 @@ padding-bottom: 3px;
 
 export const DivItensCaptions = styled.div`
     display: inline;
-    
 `;
 
 export const DivAjuste = styled.div`
     display: flex;
+`;
 
+export const DivLabelName = styled.div`
+    display: inline;
+    padding-left: 3px;
 `;
 
 export const DivFavoritos = styled.div`
@@ -299,13 +308,18 @@ padding-top: 2px;
 @media (max-width: 400px) {
         padding-bottom: 0px;
         padding-top: 0px;
-
-
-
       } 
-    
-
 `;
+
+export const DivBefore = styled.div`
+${props => console.log(props)};
+display:${props => props.value ? "none" : "block"};
+`;
+
+export const DivAfter = styled.div`
+display:${props => props.value ? "block" : "none"};
+`;
+
 
 export const ButtonFavoritos = styled.button`
     display: flex;
@@ -424,6 +438,25 @@ export const ButtonSaveTrue = styled.button`
     :hover{
   cursor: pointe;
     transform: scale(1.05);
+    }
+`;
+
+export const ButtonNext = styled.button`
+display:flex;
+position:relative;
+left:1%;
+bottom: 45px;
+    padding: 10px;
+    font-size: 15px;
+    border-width: 0px;
+    color: black;
+    border:  0px solid #ffc53d ;
+    background-color: white;
+    border-radius: 10% 40% 10% 30%;
+
+    :hover{
+  cursor: pointe;
+    transform: scale(1.02);
     }
 `;
 
@@ -563,6 +596,7 @@ export const InputName = styled.input`
     justify-content: left;
     padding: 2px;
     border-radius: 10px;
+    border: 0px 
 
 `;
 

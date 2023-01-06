@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import ContextComponents from '../context/ContextComponents';
-import { LabelCenter, InputName } from '../Styles/home.styles'
+import { LabelCenter, InputName, DivLabelName } from '../Styles/home.styles'
 
 
 function Name() {
@@ -15,12 +15,14 @@ function nameIs({target}){
     return (
         <LabelCenter>
         Nome Favorito:
+        <DivLabelName>
         <InputName
           type="text"
           name="name"
           onChange={nameIs}
           placeholder="Nome Favorito"
         />
+        </DivLabelName>
         </LabelCenter>
     )
 }

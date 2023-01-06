@@ -7,7 +7,8 @@ import ButtonSelect from './Components/ButtonSave';
 import Favorites from './Components/Favorites';
 import ContextComponents from './context/ContextComponents';
 import { DotWrapper, FormWrapper, DivCenterBorderBlack,
-   DivCaption, DivTitle } from './Styles/home.styles'
+   DivCaption, DivTitle, DivBefore, DivAfter, ButtonNext, FadeIn } from './Styles/home.styles'
+import { useState } from 'react';
 
 
 function HomePage() {
@@ -15,7 +16,14 @@ function HomePage() {
   const { selectOptionPao, genericAntes,
     genericApos, nameContext } = useContext(ContextComponents);
 
+    const [stateOption, setStateOption] = useState(false);
+
+    const changeOption = () => {
+      setStateOption(!stateOption)
+    }
+
   return (
+    <FadeIn>
     <DotWrapper>
       <DivTitle>
         {`MyFavoriteSubw : )`}
@@ -24,18 +32,37 @@ function HomePage() {
         <FormWrapper>
           <Name />
           <SaborPao />
-          <DivCaption>
-            Antes do Forno:
-          </DivCaption>
-          <Options
-            moment="Antes do Forno"
-          />
-          <DivCaption>
-            Depois do Forno:
-          </DivCaption>
-          <Options
-            moment="Depois do Forno"
-          />
+          <DivAfter
+          value={stateOption}>
+            <DivCaption>
+            Depois do Forno
+            </DivCaption>
+            <Options
+              moment="Depois do Forno"
+            />
+            <ButtonNext
+              type="button"
+              onClick={changeOption}
+            >
+              Antes do Forno
+            </ButtonNext>
+          </DivAfter>
+          <DivBefore
+          value={stateOption}>
+            <DivCaption>
+            Antes do Forno
+            </DivCaption>
+              <Options
+                moment="Antes do Forno"
+              />
+            <ButtonNext
+              type="button"
+              onClick={changeOption}
+            >
+              Depois do Forno
+            </ButtonNext>
+          </DivBefore>
+          
           <ButtonSelect />
         </FormWrapper>
       </DivCenterBorderBlack>
@@ -48,7 +75,7 @@ function HomePage() {
 
       <Favorites />
     </DotWrapper>
-
+    </FadeIn>
   );
 }
 
