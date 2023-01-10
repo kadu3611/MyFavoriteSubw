@@ -9,6 +9,7 @@ import ContextComponents from './context/ContextComponents';
 import { DotWrapper, FormWrapper, DivCenterBorderBlack,
    DivCaption, DivTitle, DivBefore, DivAfter, ButtonNext, FadeIn } from './Styles/home.styles'
 import { useState } from 'react';
+import Marketing from './Components/Marketing';
 
 
 function HomePage() {
@@ -25,6 +26,7 @@ function HomePage() {
   return (
     <FadeIn>
     <DotWrapper>
+    <Marketing/>
       <DivTitle>
         {`MyFavoriteSubw : )`}
       </DivTitle>
@@ -72,7 +74,6 @@ function HomePage() {
         before={genericAntes}
         after={genericApos}
       />
-
       <Favorites />
     </DotWrapper>
     </FadeIn>

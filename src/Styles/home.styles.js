@@ -38,17 +38,12 @@ export const DivCenterBorderBlack = styled.div`
     width:100%;
     align-items: center;
     justify-content: space-around;
-
-
     @media (max-width: 420px) {
         display: flex;
     padding-bottom: 30px;
     background-color: #5a346c;
 
-
-
       }  
-
 
 `;
 
@@ -350,6 +345,27 @@ display:${props => props.value ? "inline" : "none"};
 @media (max-width: 420px) {
   display:${props => props.value ? "block" : "none"};
       } 
+`;
+
+export const DivMarketing = styled.div`
+    display: flex;
+    font-size: 18px;
+    color:black;
+    padding: 2px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    justify-content: space-evenly;
+    width:5%;
+`;
+
+export const ImagemMarketing = styled.img`
+width: 20px;
+height: 20px;
+`;
+
+export const AncoraMarketing = styled.a`
+padding: 0px;
+margin: 0px;
 `;
 
 
