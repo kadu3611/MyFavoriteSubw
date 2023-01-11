@@ -498,13 +498,14 @@ bottom: 45px;
     font-size: 15px;
     border-width: 0px;
     color: black;
-    border:  0px solid #ffc53d ;
+    border: 0px solid gray ;
     background-color: white;
     border-radius: 10% 40% 10% 30%;
 
     :hover{
   cursor: pointe;
     transform: scale(1.02);
+    background-color: #f1f1f1;
     }
 `;
 

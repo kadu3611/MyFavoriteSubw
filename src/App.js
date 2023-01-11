@@ -46,7 +46,7 @@ function HomePage() {
               type="button"
               onClick={changeOption}
             >
-              Antes do Forno
+              {`< Antes do Forno`}
             </ButtonNext>
           </DivAfter>
           <DivBefore
@@ -61,7 +61,7 @@ function HomePage() {
               type="button"
               onClick={changeOption}
             >
-              Depois do Forno
+              {`Depois do Forno >`}
             </ButtonNext>
           </DivBefore>
           
