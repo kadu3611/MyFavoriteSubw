@@ -70,6 +70,7 @@ function CardItem({ name, bread, before, after }) {
 
   return (
     <DivCenterCard>
+
       <DivCard>
         <DivCardItens>
           <DivCardMyFavorite>
