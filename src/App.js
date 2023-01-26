@@ -80,7 +80,7 @@ function HomePage() {
         />
         <Favorites />
       </DotWrapper>
-      <Link
+      {/* <Link
         to="/PageTest"
       >
         <button
@@ -89,7 +89,7 @@ function HomePage() {
           Aqui para o Test
 
         </button>
-      </Link>
+      </Link> */}
     </FadeIn>
 
   );

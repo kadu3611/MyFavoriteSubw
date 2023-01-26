@@ -13,7 +13,7 @@ function Routes() {
                 <Redirect from="/" to="/login" />
             </Route>
             <Route exact path="/login" component={HomePage} />
-            <Route exact path="/PageTest" component={PaginaTeste} />
+            {/* <Route exact path="/PageTest" component={PaginaTeste} /> */}
         </Switch>
     )
 
